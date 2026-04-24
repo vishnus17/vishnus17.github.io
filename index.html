@@ -3,464 +3,687 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Vishnu S is a Cloud Engineer, AWS Community Builder and LiFT'22 Scholar.">
+    <meta name="description" content="Vishnu S — Cloud & DevOps Engineer, AWS Community Builder and LiFT'22 Scholar. AWS, Terraform, Kubernetes, CI/CD, automation.">
     <meta name="author" content="Vishnu S">
+    <meta name="theme-color" content="#0a0e1a">
 
-    <title>Vishnu S</title>
+    <meta property="og:title" content="Vishnu S — Cloud & DevOps Engineer">
+    <meta property="og:description" content="Cloud & DevOps Engineer. AWS Community Builder. LiFT'22 Scholar.">
+    <meta property="og:type" content="website">
+
+    <title>Vishnu S — Cloud & DevOps Engineer</title>
+
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="css/tooplate-style.css">
+    <link rel="stylesheet" href="css/portfolio.css">
   </head>
   <body>
 
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><img class='uil' src="images/favicon.webp" style="border-radius:50%;" width="6%"></img> Vishnu S</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#articles" class="nav-link"><span data-hover="Articles">Articles</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
-                  </li>
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon"></i>
-                        Color mode
-                      </div>
-                    </div>
-                </ul>
-            </div>
-        </div>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="#home" class="nav-brand">
+          <span class="prompt">~/</span><span class="path">vishnu</span><span class="cursor"></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">about</a></li>
+          <li><a href="#stack">stack</a></li>
+          <li><a href="#experience">experience</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#articles">articles</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </nav>
 
-    <!-- ABOUT -->
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-                    <div class="about-text">
-                        <img src="images/undraw/85759-cloud.gif" width="10%" class="img-fluid" alt="svg image">
-                        <h1 class="animated animated-text">
-                            <span class="mr-2">Hi, I'm</span>
-                                <div class="animated-info">
-                                    <span class="animated-item">Vishnu S</span>
-                                    <span class="animated-item">a Cloud Engineer</span>
-                                    <span class="animated-item">an AWS Community Builder</span> <br>
-                                </div>
-                        </h1>
-
-                        <p>A passionate Cloud and DevOps Engineer. I enjoy automating things and brining up solutions to resolve issues. AWS Community Builder, LiFT 2022 Scholarship recipient and Open source contributor.</p>
-                        
-                        <div class="custom-btn-group mt-4">
-                          <a href="https://drive.google.com/file/d/18mvdnM4_KhO4PKJBLQAf2glV7z0v6bcC/view?usp=sharing" target="_blank" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-                          <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Connect with me</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="about-image svg">
-                        <img src="images/undraw/cloud-guy.gif" class="img-fluid" alt="svg image">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles -->
-    <section class="project py-5" id="articles">
-        <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
-
-                      <div class="col-lg-8 mx-auto">
-                        <h2>Articles</h2>
-                      </div>
-                      <div class="owl-carousel owl-theme">
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/how-to-deploy-to-ec2-using-github-actions-without-iam-user" target="_blank"><img src="images/project/project-image00.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/accessing-ec2-without-using-ssh-key" target="_blank"><img src="images/project/project-image06.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/mongodb-atlas-aws-iam-passwordless-authentication-example" target="_blank"><img src="images/project/project-image01.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/automate-amazon-ecs-cluster-creation-with-a-custom-docker-image-using-aws-cdk" target="_blank"><img src="images/project/project-image02.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account" target="_blank"><img src="images/project/project-image03.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/serverless-image-handler-cdk-v2-simplified-implementation-sih-cdk-solution" target="_blank"><img src="images/project/project-image04.png"  class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                        
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.wemakedevs.org/how-do-websites-redirect-to-your-location-based-version" target="_blank"><img src="images/project/project-image05.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                      </div>
-
-                  </div>
-                </div>
-        </div>
-    </section>
-
-    <!-- Projects-->
-    
-        <!-- Portfolio Start -->
-        <div class="portfolio" id="project">
-          <div class="container">
-              <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                  <h2>Projects</h2>
-                  <br>
-                  <br>
-              </div>
-              <div class="row">
-                <br>
-              </div>
-              <div class="row portfolio-container">
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                              <a href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><img src="images/img/portfolio-1.PNG" alt="Image"></a>
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Firebase CI/CD Pipeline</h3>
-                              <a class="btn" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                            <a href="https://github.com/vishnus17/Terraform-aws-lambda"><img src="images/img/portfolio-2.PNG" alt="Image"></a>  
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Terraform Lambda</h3>
-                              <a class="btn" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                            <a href="https://github.com/vishnus17/Terraform-AKS" target="_blank">  <img src="images/img/portfolio-3.PNG" alt="Image"></a>
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Terraform AKS</h3>
-                              <a class="btn" href="https://github.com/vishnus17/Terraform-AKS" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="portfolio-wrap">
-                        <div class="portfolio-img">
-                          <a href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank">  <img src="images/img/portfolio-4.PNG" alt="Image"></a>
-                        </div>
-                        <div class="portfolio-text">
-                            <h3>Terraform GCP Resources</h3>
-                            <a class="btn" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                  <div class="portfolio-wrap">
-                      <div class="portfolio-img">
-                        <a href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank">  <img src="images/img/portfolio-5.PNG" alt="Image"></a>
-                      </div>
-                      <div class="portfolio-text">
-                          <h3>Ansible URI Module</h3>
-                          <a class="btn" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank">View</a>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="portfolio-wrap">
-                    <div class="portfolio-img">
-                      <a href="https://github.com/vishnus17/ECS-automation" target="_blank">  <img src="images/img/portfolio-7.png" alt="Image"></a>
-                    </div>
-                    <div class="portfolio-text">
-                        <h3>ECS automation</h3>
-                        <a class="btn" href="https://github.com/vishnus17/ECS-automation" target="_blank">View</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-              <div class="portfolio-wrap">
-                  <div class="portfolio-img">
-                    <a href="https://github.com/vishnus17/ECS-automation" target="_blank">  <img src="images/img/portfolio-8.png" alt="Image"></a>
-                  </div>
-                  <div class="portfolio-text">
-                      <h3>Monitoring automation</h3>
-                      <a class="btn" href="https://github.com/vishnus17/cdk-monitoring" target="_blank">View</a>
-                  </div>
-              </div>
-          </div>
-                      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp " data-wow-delay="0.0s">
-                      <div class="portfolio-wrap">
-                      <div class="portfolio-img">
-                        <a href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"> <img src="images/img/portfolio-6.PNG" alt="Image"></a>
-                      </div>
-                      <div class="portfolio-text">
-                          <h3>Flask Api</h3>
-                          <a class="btn" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank">View</a>
-                      </div>
-                  </div>
-              </div> </div> <br>
-              <div class="row">
-                <br>
-          </div>
-      </div>
-    </div></div>
-      <!-- Portfolio End -->
-
-    <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4">Experience</h2>
-
-                    <div class="timeline">
-                      <div class="timeline-wrapper"><font-color="white">October</font>
-                        <div class="timeline-yr">
-                             <span>2023</span>
-                             
-                        </div>
-                        <div class="timeline-info">
-                             <h3><span>Cloud Engineer 2</span><a href="https://www.appmastery.co/"><small>App Mastery</small></h3></a>
-                             <p>Responsible for handling multiple projects and deliverables within the company and for maintaining the performance, scalability, and reliability of different infrastructures.</p>
-                        </div>
-                   </div>
-
-                        <div class="timeline-wrapper"><font-color="white">July</font>
-                             <div class="timeline-yr">
-                                  <span>2022</span>
-                                  
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Cloud Engineer</span><a href="https://www.appmastery.co/"><small>App Mastery</small></h3></a>
-                                  <p>Develop and implement cloud solutions for various application architectures and programmatic integration of cloud applications, data services, and infrastructure ....</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper"><font-color="white">May</font>
-                            <div class="timeline-yr">
-                                <span>2022</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>DevOps Engineer</span><small>Gritfy Technologies</small></h3>
-                                <p>Building and setting up new development tools and infrastructure using DevOps practices ....</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-wrapper"><font-color="white">April</font>
-                            <div class="timeline-yr">
-                                <span>2022</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>DevOps Freelancer<small>Upwork</small></h3>
-                                <p>Providing DevOps services for clients, implement solutions,etc.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4 mobile-mt-2">Education</h2>
-
-                    <div class="timeline">
-                        <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2023</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>B.Tech Computer Science Engineering</span></h3>
-                                  <p>Indian Institute of Information Technology Kottayam</p>
-                                  <p> CGPA - 8.185</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2018</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>Higher Secondary</span></h3>
-                                <p>GHSS Korom</p>
-                                <p>Percentage - 98%</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2016</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>10th STD</span></h3>
-                                <p>Chinmaya Vidyalaya Payyanur</p>
-                                <p>CGPA - 10.0</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    
-    <!-- CONTACT -->
-    <section class="contact py-5" id="contact">
+    <!-- HERO -->
+    <section class="hero" id="home">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-12">
-                  <img src="images/undraw/74908-girl-chatting-with-online-friends.gif" style="position: relative; width: 80%;" class="img-fluid" alt="svg image">
-              </div>
-
-          <div class="col-lg-6 col col-12 ">
-                  <div class="contact-form">
-                    <br>
-                    <br>
-                    <br>
-                      <h2 class="mb-4">Get in touch</h2>
-                      <form action="https://formspree.io/f/mlevgdop" method="POST">
-                          <div class="row">
-                              <div class="col-lg-6 col-12">
-                                  <input type="text" name="name" class="form-control" placeholder="Name" required>
-                              </div>
-                              <div class="col-lg-6 col-12">
-                                  <input type="email" name="email" class="form-control" placeholder="Email" required>
-                              </div>
-                              <div class="col-12">
-                                  <textarea name="message" class="form-control" placeholder="Message" required></textarea>
-                              </div>
-                              <div class="col-12">
-                                  <button type="submit" class="form-control submit-btn">Send Message</button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </section>
-      <!-- Site footer -->
-      <footer class="site-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-              <h6> Reach me at</h6>
-              <br>
-              <div class="Quick-links">
-                <ul class="list-unstyled">
-                      <p><a href="mailto:vishnu.satheesh178@gmail.com">vishnu.satheesh178@gmail.com</a></p>
-                    </div>
-                </div>
-                </ul>
-              </div>
+        <div class="hero-grid">
+          <div>
+            <div class="hero-greeting">whoami</div>
+            <h1 class="hero-title">Hi, I'm <span class="name">Vishnu S</span></h1>
+            <div class="hero-role">
+              <span class="typed" id="typed"></span>
             </div>
-            <div class="copyright-text text-center col-sm-12"><p> Made by Vishnu S</p></div>
-            <div class="col-12">
-              <ul class="social-icons">
-                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                        <div class="social-buttons">        
-                                <!-- LinkedIn Button -->
-                                <a href="https://www.linkedin.com/in/vishnu-s-763644196/" class="social-margin" target="blank">
-                                  <div class="social-icon linkedin">
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                  </div> 
-                                </a>
-                              <!-- Github Button -->
-                                <a href="https://github.com/vishnus17"  target="blank"  class="social-margin">
-                                  <div class="social-icon github">
-                                    <i class="fa fa-github-alt" aria-hidden="true"></i>
-                                  </div>
-                                </a>
-                          <!-- TwitterButton -->
-                                <a href="https://twitter.com/tastyapple17" target="blank" class="social-margin">
-                                  <div class="social-icon twitter">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                  </div> 
-                                </a>
-                        </div>
-                        </div>
-                </body>
-                </html>
-              </ul>
+            <p class="hero-desc">
+              I design, build, and automate resilient cloud infrastructure. Passionate about
+              <span class="highlight">Infrastructure as Code</span>, CI/CD pipelines, and
+              Kubernetes. <span class="highlight">AWS Community Builder</span> &amp; LiFT'22 Scholar
+              shipping production-ready cloud solutions.
+            </p>
+            <div class="hero-actions">
+              <a href="https://drive.google.com/file/d/18mvdnM4_KhO4PKJBLQAf2glV7z0v6bcC/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary">
+                <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+              </a>
+              <a href="#contact" class="btn btn-ghost">
+                <i class="fa-solid fa-paper-plane"></i> Get in touch
+              </a>
+            </div>
+            <div class="hero-socials">
+              <a href="https://github.com/vishnus17" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/vishnu-s-763644196/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://twitter.com/tastyapple17" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://blog.learnmorecloud.com" target="_blank" rel="noopener" aria-label="Blog"><i class="fa-solid fa-rss"></i></a>
+              <a href="mailto:vishnu.satheesh178@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <div class="terminal" aria-hidden="true">
+            <div class="terminal-header">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">vishnu@cloud:~</span>
+            </div>
+            <div class="terminal-body" id="termBody">
+              <div><span class="cmd">$</span> cat profile.yaml</div>
+              <div><span class="key">name</span>: <span class="str">Vishnu S</span></div>
+              <div><span class="key">role</span>: <span class="str">Cloud / DevOps Engineer</span></div>
+              <div><span class="key">location</span>: <span class="str">India</span></div>
+              <div><span class="key">focus</span>:</div>
+              <div>&nbsp;&nbsp;- <span class="val">AWS &amp; multi-cloud</span></div>
+              <div>&nbsp;&nbsp;- <span class="val">IaC (Terraform, CDK)</span></div>
+              <div>&nbsp;&nbsp;- <span class="val">Kubernetes &amp; containers</span></div>
+              <div>&nbsp;&nbsp;- <span class="val">CI/CD automation</span></div>
+              <div><span class="cmd">$</span> terraform apply <span class="flag">-auto-approve</span></div>
+              <div><span class="ok">Apply complete! Resources: 42 added, 0 changed, 0 destroyed.</span></div>
+              <div><span class="cmd">$</span> <span class="comment"># ready to build something great_</span></div>
             </div>
           </div>
         </div>
-  </footer>
+      </div>
+    </section>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">01 / about</div>
+          <h2 class="section-title">Engineer by craft, automator by instinct</h2>
+          <p class="section-desc">
+            I've spent the last few years helping teams ship faster and sleep better — architecting
+            cloud platforms, codifying infrastructure, and eliminating the toil that slows engineers down.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card reveal">
+            <div class="stat-value">3+</div>
+            <div class="stat-label">Years in Cloud &amp; DevOps</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-value">20+</div>
+            <div class="stat-label">Projects shipped</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-value">7+</div>
+            <div class="stat-label">Technical articles</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-value">AWS</div>
+            <div class="stat-label">Community Builder</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">02 / stack</div>
+          <h2 class="section-title">Tools of the trade</h2>
+          <p class="section-desc">
+            The platforms and technologies I reach for when designing cloud-native systems and
+            automating infrastructure.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-cloud"></i></span>
+              <span class="stack-card-title">Cloud Platforms</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">AWS</span>
+              <span class="stack-badge">Azure</span>
+              <span class="stack-badge">GCP</span>
+              <span class="stack-badge">DigitalOcean</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-code"></i></span>
+              <span class="stack-card-title">Infrastructure as Code</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">Terraform</span>
+              <span class="stack-badge">AWS CDK</span>
+              <span class="stack-badge">CloudFormation</span>
+              <span class="stack-badge">Pulumi</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-cubes"></i></span>
+              <span class="stack-card-title">Containers &amp; Orchestration</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">Docker</span>
+              <span class="stack-badge">Kubernetes</span>
+              <span class="stack-badge">EKS</span>
+              <span class="stack-badge">ECS</span>
+              <span class="stack-badge">Helm</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-arrows-spin"></i></span>
+              <span class="stack-card-title">CI / CD</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">GitHub Actions</span>
+              <span class="stack-badge">Jenkins</span>
+              <span class="stack-badge">GitLab CI</span>
+              <span class="stack-badge">ArgoCD</span>
+              <span class="stack-badge">CodePipeline</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-gauge-high"></i></span>
+              <span class="stack-card-title">Observability</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">CloudWatch</span>
+              <span class="stack-badge">Prometheus</span>
+              <span class="stack-badge">Grafana</span>
+              <span class="stack-badge">Datadog</span>
+              <span class="stack-badge">ELK</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-terminal"></i></span>
+              <span class="stack-card-title">Scripting &amp; Config</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">Python</span>
+              <span class="stack-badge">Bash</span>
+              <span class="stack-badge">Go</span>
+              <span class="stack-badge">Ansible</span>
+              <span class="stack-badge">YAML</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-shield-halved"></i></span>
+              <span class="stack-card-title">Security &amp; Networking</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">IAM</span>
+              <span class="stack-badge">VPC</span>
+              <span class="stack-badge">Secrets Manager</span>
+              <span class="stack-badge">WAF</span>
+              <span class="stack-badge">Cloudflare</span>
+            </div>
+          </div>
+
+          <div class="stack-card reveal">
+            <div class="stack-card-header">
+              <span class="stack-card-icon"><i class="fa-solid fa-database"></i></span>
+              <span class="stack-card-title">Data &amp; Messaging</span>
+            </div>
+            <div class="stack-items">
+              <span class="stack-badge">RDS</span>
+              <span class="stack-badge">DynamoDB</span>
+              <span class="stack-badge">MongoDB</span>
+              <span class="stack-badge">SQS</span>
+              <span class="stack-badge">Kafka</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE + EDUCATION -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">03 / journey</div>
+          <h2 class="section-title">Experience &amp; education</h2>
+          <p class="section-desc">
+            A track record of shipping infrastructure that scales and teams that ship.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="reveal">
+            <h3 style="font-family: var(--mono); color: var(--cyan); font-size: 1rem; margin-bottom: 1.5rem; letter-spacing: 0.05em;">&gt; experience</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">Oct 2023 &mdash; Present</div>
+                <div class="timeline-role">Cloud Engineer II</div>
+                <div class="timeline-company">@ App Mastery</div>
+                <p class="timeline-desc">
+                  Leading cloud infrastructure across multiple client projects. Designing scalable,
+                  resilient architectures and mentoring on cloud best practices. Driving cost
+                  optimization and reliability initiatives.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">AWS</span>
+                  <span class="timeline-tag">Terraform</span>
+                  <span class="timeline-tag">Kubernetes</span>
+                  <span class="timeline-tag">Mentorship</span>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">Jul 2022 &mdash; Oct 2023</div>
+                <div class="timeline-role">Cloud Engineer</div>
+                <div class="timeline-company">@ App Mastery</div>
+                <p class="timeline-desc">
+                  Developed cloud solutions across varied application architectures. Automated
+                  provisioning with IaC, integrated serverless services, and modernized legacy
+                  deployments.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">AWS CDK</span>
+                  <span class="timeline-tag">Lambda</span>
+                  <span class="timeline-tag">ECS</span>
+                  <span class="timeline-tag">CI/CD</span>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">May 2022 &mdash; Jul 2022</div>
+                <div class="timeline-role">DevOps Engineer</div>
+                <div class="timeline-company">@ Gritfy Technologies</div>
+                <p class="timeline-desc">
+                  Built and configured development tooling and infrastructure using DevOps
+                  practices &mdash; automating releases, monitoring, and environment provisioning.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Jenkins</span>
+                  <span class="timeline-tag">Ansible</span>
+                  <span class="timeline-tag">Docker</span>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">Apr 2022 &mdash; Present</div>
+                <div class="timeline-role">DevOps Freelancer</div>
+                <div class="timeline-company">@ Upwork</div>
+                <p class="timeline-desc">
+                  Providing DevOps consulting and implementation for clients worldwide &mdash; from
+                  CI/CD pipelines to cloud migrations and infrastructure audits.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Consulting</span>
+                  <span class="timeline-tag">Multi-cloud</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <h3 style="font-family: var(--mono); color: var(--cyan); font-size: 1rem; margin-bottom: 1.5rem; letter-spacing: 0.05em;">&gt; education</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">2019 &mdash; 2023</div>
+                <div class="timeline-role">B.Tech, Computer Science &amp; Engineering</div>
+                <div class="timeline-company">Indian Institute of Information Technology Kottayam</div>
+                <p class="timeline-desc">CGPA: 8.185 / 10</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">2016 &mdash; 2018</div>
+                <div class="timeline-role">Higher Secondary</div>
+                <div class="timeline-company">GHSS Korom</div>
+                <p class="timeline-desc">Score: 98%</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">2016</div>
+                <div class="timeline-role">Secondary (10th)</div>
+                <div class="timeline-company">Chinmaya Vidyalaya Payyanur</div>
+                <p class="timeline-desc">CGPA: 10.0 / 10</p>
+              </div>
+            </div>
+
+            <h3 style="font-family: var(--mono); color: var(--cyan); font-size: 1rem; margin: 2.5rem 0 1.5rem; letter-spacing: 0.05em;">&gt; achievements</h3>
+            <div class="achievements-grid">
+              <div class="achievement-card">
+                <span class="achievement-icon"><i class="fa-brands fa-aws"></i></span>
+                <div>
+                  <div class="achievement-title">AWS Community Builder</div>
+                  <div class="achievement-desc">Recognized by AWS for contributions to the cloud community.</div>
+                </div>
+              </div>
+              <div class="achievement-card">
+                <span class="achievement-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                  <div class="achievement-title">LiFT 2022 Scholar</div>
+                  <div class="achievement-desc">Linux Foundation Training scholarship recipient.</div>
+                </div>
+              </div>
+              <div class="achievement-card">
+                <span class="achievement-icon"><i class="fa-brands fa-github"></i></span>
+                <div>
+                  <div class="achievement-title">Open Source Contributor</div>
+                  <div class="achievement-desc">Contributing to cloud-native and DevOps projects.</div>
+                </div>
+              </div>
+              <div class="achievement-card">
+                <span class="achievement-icon"><i class="fa-solid fa-pen-nib"></i></span>
+                <div>
+                  <div class="achievement-title">Technical Writer</div>
+                  <div class="achievement-desc">Publishing hands-on cloud and DevOps tutorials.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">04 / projects</div>
+          <h2 class="section-title">Things I've built</h2>
+          <p class="section-desc">
+            A selection of infrastructure automation and cloud tooling I've shipped. Each one
+            solves a real operational problem.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-arrows-spin"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Firebase CI/CD Pipeline</h3>
+            <p class="project-desc">
+              Automated CI/CD pipeline for React Native apps deploying to Firebase App Distribution
+              with environment-aware builds.
+            </p>
+            <div class="project-stack">
+              <span>GitHub Actions</span><span>Firebase</span><span>React Native</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-bolt"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Terraform AWS Lambda</h3>
+            <p class="project-desc">
+              Reusable Terraform module to provision Lambda functions with IAM, triggers, and
+              logging configured out of the box.
+            </p>
+            <div class="project-stack">
+              <span>Terraform</span><span>AWS Lambda</span><span>IAM</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-dharmachakra"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/Terraform-AKS" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Terraform AKS Cluster</h3>
+            <p class="project-desc">
+              Production-ready Azure Kubernetes Service cluster provisioning with networking,
+              RBAC, and node pools via Terraform.
+            </p>
+            <div class="project-stack">
+              <span>Terraform</span><span>Azure</span><span>Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-brands fa-google"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">GCP Infrastructure with Terraform</h3>
+            <p class="project-desc">
+              Codified Google Cloud resources &mdash; Compute, networking, IAM, and storage &mdash;
+              with reusable modules.
+            </p>
+            <div class="project-stack">
+              <span>Terraform</span><span>GCP</span><span>IaC</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-cubes"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/ECS-automation" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">ECS Cluster Automation</h3>
+            <p class="project-desc">
+              Automated Amazon ECS cluster creation with custom Docker images using AWS CDK &mdash;
+              zero-click cluster provisioning.
+            </p>
+            <div class="project-stack">
+              <span>AWS CDK</span><span>ECS</span><span>Docker</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-gauge-high"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/cdk-monitoring" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">CDK Monitoring Automation</h3>
+            <p class="project-desc">
+              Infrastructure-as-Code for CloudWatch dashboards, alarms, and SNS alerting across
+              services &mdash; monitoring on autopilot.
+            </p>
+            <div class="project-stack">
+              <span>AWS CDK</span><span>CloudWatch</span><span>Python</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-robot"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Ansible URI Module Examples</h3>
+            <p class="project-desc">
+              Practical playbooks demonstrating the Ansible URI module for API automation and
+              service health checks.
+            </p>
+            <div class="project-stack">
+              <span>Ansible</span><span>Automation</span><span>REST</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-plug"></i></span>
+              <div class="project-links">
+                <a href="https://github.com/vishnus17/flask-postgresql-api" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Flask + PostgreSQL API</h3>
+            <p class="project-desc">
+              Containerized Python REST API with PostgreSQL backend &mdash; a reference template
+              for quick cloud-deployable services.
+            </p>
+            <div class="project-stack">
+              <span>Python</span><span>Flask</span><span>PostgreSQL</span><span>Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section id="articles">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">05 / writing</div>
+          <h2 class="section-title">Articles &amp; tutorials</h2>
+          <p class="section-desc">
+            I write hands-on cloud and DevOps tutorials &mdash; sharing what I learn as I build.
+          </p>
+        </div>
+
+        <div class="articles-grid">
+          <article class="article-card reveal">
+            <a href="https://blog.learnmorecloud.com/how-to-deploy-to-ec2-using-github-actions-without-iam-user" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image00.png" alt="Deploy to EC2 using GitHub Actions"></div>
+              <div class="article-body">
+                <span class="article-tag">CI/CD · AWS</span>
+                <div class="article-title">Deploy to EC2 using GitHub Actions without an IAM user</div>
+              </div>
+            </a>
+          </article>
+
+          <article class="article-card reveal">
+            <a href="https://blog.learnmorecloud.com/accessing-ec2-without-using-ssh-key" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image06.png" alt="Accessing EC2 without SSH key"></div>
+              <div class="article-body">
+                <span class="article-tag">AWS · Security</span>
+                <div class="article-title">Accessing EC2 without using an SSH key</div>
+              </div>
+            </a>
+          </article>
+
+          <article class="article-card reveal">
+            <a href="https://blog.learnmorecloud.com/mongodb-atlas-aws-iam-passwordless-authentication-example" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image01.png" alt="MongoDB Atlas AWS IAM auth"></div>
+              <div class="article-body">
+                <span class="article-tag">AWS · MongoDB</span>
+                <div class="article-title">MongoDB Atlas + AWS IAM passwordless authentication</div>
+              </div>
+            </a>
+          </article>
+
+          <article class="article-card reveal">
+            <a href="https://blog.learnmorecloud.com/automate-amazon-ecs-cluster-creation-with-a-custom-docker-image-using-aws-cdk" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image02.png" alt="Automate ECS with CDK"></div>
+              <div class="article-body">
+                <span class="article-tag">AWS CDK · ECS</span>
+                <div class="article-title">Automate Amazon ECS cluster creation with custom Docker images using AWS CDK</div>
+              </div>
+            </a>
+          </article>
+
+          <article class="article-card reveal">
+            <a href="https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image03.png" alt="Cross-account CodeBuild"></div>
+              <div class="article-body">
+                <span class="article-tag">AWS · Lambda</span>
+                <div class="article-title">Trigger CodeBuild across AWS accounts with a Lambda function</div>
+              </div>
+            </a>
+          </article>
+
+          <article class="article-card reveal">
+            <a href="https://blog.learnmorecloud.com/serverless-image-handler-cdk-v2-simplified-implementation-sih-cdk-solution" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image04.png" alt="Serverless Image Handler"></div>
+              <div class="article-body">
+                <span class="article-tag">CDK · Serverless</span>
+                <div class="article-title">Serverless Image Handler: simplified implementation with AWS CDK v2</div>
+              </div>
+            </a>
+          </article>
+
+          <article class="article-card reveal">
+            <a href="https://blog.wemakedevs.org/how-do-websites-redirect-to-your-location-based-version" target="_blank" rel="noopener">
+              <div class="article-thumb"><img src="images/project/project-image05.png" alt="Geo-based redirects"></div>
+              <div class="article-body">
+                <span class="article-tag">Networking</span>
+                <div class="article-title">How do websites redirect to your location-based version?</div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div class="section-label" style="justify-content: center;">06 / contact</div>
+          <h2 class="contact-title">Let's build something <span class="accent">scalable</span></h2>
+          <p class="contact-desc">
+            Have a cloud migration, an infrastructure challenge, or just want to talk DevOps?
+            I'm always open to interesting conversations.
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:vishnu.satheesh178@gmail.com" class="btn btn-primary">
+              <i class="fa-solid fa-envelope"></i> vishnu.satheesh178@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/vishnu-s-763644196/" target="_blank" rel="noopener" class="btn btn-ghost">
+              <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-socials">
+            <a href="https://github.com/vishnus17" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vishnu-s-763644196/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/tastyapple17" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://blog.learnmorecloud.com" target="_blank" rel="noopener" aria-label="Blog"><i class="fa-solid fa-rss"></i></a>
+          </div>
+          <div class="footer-text">
+            &copy; <span id="year"></span> Vishnu S &middot; built with <i class="fa-solid fa-heart" style="color: var(--aws);"></i> and coffee
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/portfolio.js"></script>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-
   </body>
 </html>
