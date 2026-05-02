@@ -102,268 +102,486 @@
     </section>
 
     <!-- Articles -->
-    <section class="project py-5" id="articles">
+    <section class="articles-modern py-5" id="articles">
         <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
+            <div class="section-header-modern reveal">
+                <span class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-path">~/blog</span>
+                    <span class="prompt-cmd">cat recent-posts.md</span>
+                    <span class="blink-cursor"></span>
+                </span>
+                <h2>Articles</h2>
+            </div>
 
-                      <div class="col-lg-8 mx-auto">
-                        <h2>Articles</h2>
-                      </div>
-                      <div class="owl-carousel owl-theme">
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/how-to-deploy-to-ec2-using-github-actions-without-iam-user" target="_blank"><img src="images/project/project-image00.png" class="img-fluid" alt="project image"></a>
-                          </div>
+            <div class="row reveal-stagger">
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/how-to-deploy-to-ec2-using-github-actions-without-iam-user" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image00.png" alt="Deploy to EC2 using GitHub Actions without IAM User">
+                            <span class="article-card-overlay"><i class="uil uil-bolt"></i> CI/CD</span>
                         </div>
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/accessing-ec2-without-using-ssh-key" target="_blank"><img src="images/project/project-image06.png" class="img-fluid" alt="project image"></a>
-                          </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Deploy to EC2 using GitHub Actions without an IAM User</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">AWS EC2</span>
+                                <span class="tech-badge github">GitHub Actions</span>
+                                <span class="tech-badge">OIDC</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
                         </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/mongodb-atlas-aws-iam-passwordless-authentication-example" target="_blank"><img src="images/project/project-image01.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/automate-amazon-ecs-cluster-creation-with-a-custom-docker-image-using-aws-cdk" target="_blank"><img src="images/project/project-image02.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account" target="_blank"><img src="images/project/project-image03.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/serverless-image-handler-cdk-v2-simplified-implementation-sih-cdk-solution" target="_blank"><img src="images/project/project-image04.png"  class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                        
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.wemakedevs.org/how-do-websites-redirect-to-your-location-based-version" target="_blank"><img src="images/project/project-image05.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                      </div>
-
-                  </div>
+                    </a>
                 </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/accessing-ec2-without-using-ssh-key" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image06.png" alt="Accessing EC2 without SSH Key">
+                            <span class="article-card-overlay"><i class="uil uil-shield-check"></i> Security</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Accessing EC2 Without Using an SSH Key</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">SSM</span>
+                                <span class="tech-badge">IAM</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/mongodb-atlas-aws-iam-passwordless-authentication-example" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image01.png" alt="MongoDB Atlas AWS IAM Passwordless Authentication">
+                            <span class="article-card-overlay"><i class="uil uil-key-skeleton-alt"></i> Auth</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">MongoDB Atlas + AWS IAM Passwordless Authentication</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge mongodb">MongoDB</span>
+                                <span class="tech-badge aws">AWS IAM</span>
+                                <span class="tech-badge">Atlas</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/automate-amazon-ecs-cluster-creation-with-a-custom-docker-image-using-aws-cdk" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image02.png" alt="Automate ECS Cluster with AWS CDK">
+                            <span class="article-card-overlay"><i class="uil uil-cube"></i> IaC</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Automate Amazon ECS Cluster Creation with AWS CDK</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">ECS</span>
+                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge">AWS CDK</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image03.png" alt="Lambda triggering CodeBuild cross-account">
+                            <span class="article-card-overlay"><i class="uil uil-cloud-download"></i> Serverless</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Use Lambda to Trigger CodeBuild in Another AWS Account</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">Lambda</span>
+                                <span class="tech-badge">CodeBuild</span>
+                                <span class="tech-badge">Cross-Account</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/serverless-image-handler-cdk-v2-simplified-implementation-sih-cdk-solution" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image04.png" alt="Serverless Image Handler CDK">
+                            <span class="article-card-overlay"><i class="uil uil-image"></i> Serverless</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Serverless Image Handler CDK v2 — Simplified Implementation</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">CDK v2</span>
+                                <span class="tech-badge">CloudFront</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.wemakedevs.org/how-do-websites-redirect-to-your-location-based-version" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image05.png" alt="Geo-based redirects">
+                            <span class="article-card-overlay"><i class="uil uil-globe"></i> Web</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">How Websites Redirect You to Your Location-Based Version</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge">GeoDNS</span>
+                                <span class="tech-badge">CDN</span>
+                                <span class="tech-badge">Networking</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Projects-->
-    
-        <!-- Portfolio Start -->
-        <div class="portfolio" id="project">
-          <div class="container">
-              <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                  <h2>Projects</h2>
-                  <br>
-                  <br>
-              </div>
-              <div class="row">
-                <br>
-              </div>
-              <div class="row portfolio-container">
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                              <a href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><img src="images/img/portfolio-1.PNG" alt="Image"></a>
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Firebase CI/CD Pipeline</h3>
-                              <a class="btn" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                            <a href="https://github.com/vishnus17/Terraform-aws-lambda"><img src="images/img/portfolio-2.PNG" alt="Image"></a>  
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Terraform Lambda</h3>
-                              <a class="btn" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                            <a href="https://github.com/vishnus17/Terraform-AKS" target="_blank">  <img src="images/img/portfolio-3.PNG" alt="Image"></a>
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Terraform AKS</h3>
-                              <a class="btn" href="https://github.com/vishnus17/Terraform-AKS" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="portfolio-wrap">
-                        <div class="portfolio-img">
-                          <a href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank">  <img src="images/img/portfolio-4.PNG" alt="Image"></a>
+    <div class="portfolio" id="project">
+        <div class="container">
+            <div class="section-header-modern reveal text-center">
+                <span class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-path">~/projects</span>
+                    <span class="prompt-cmd">ls --all --tech</span>
+                    <span class="blink-cursor"></span>
+                </span>
+                <h2>Projects</h2>
+            </div>
+
+            <div class="row reveal-stagger">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><img src="images/img/portfolio-1.PNG" alt="Firebase CI/CD Pipeline"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
                         </div>
-                        <div class="portfolio-text">
-                            <h3>Terraform GCP Resources</h3>
-                            <a class="btn" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank">View</a>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Firebase CI/CD Pipeline</h3>
+                            <p class="project-card-desc">Automated React Native deployment pipeline with Firebase, enabling seamless mobile app delivery on every push.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge firebase">Firebase</span>
+                                <span class="tech-badge">React Native</span>
+                                <span class="tech-badge">CI/CD</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                  <div class="portfolio-wrap">
-                      <div class="portfolio-img">
-                        <a href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank">  <img src="images/img/portfolio-5.PNG" alt="Image"></a>
-                      </div>
-                      <div class="portfolio-text">
-                          <h3>Ansible URI Module</h3>
-                          <a class="btn" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank">View</a>
-                      </div>
-                  </div>
-              </div>
 
-              <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="portfolio-wrap">
-                    <div class="portfolio-img">
-                      <a href="https://github.com/vishnus17/ECS-automation" target="_blank">  <img src="images/img/portfolio-7.png" alt="Image"></a>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank"><img src="images/img/portfolio-2.PNG" alt="Terraform AWS Lambda"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Terraform AWS Lambda</h3>
+                            <p class="project-card-desc">Infrastructure as Code module to provision AWS Lambda functions with IAM roles and event source mappings.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge terraform">Terraform</span>
+                                <span class="tech-badge aws">AWS Lambda</span>
+                                <span class="tech-badge">IaC</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-text">
-                        <h3>ECS automation</h3>
-                        <a class="btn" href="https://github.com/vishnus17/ECS-automation" target="_blank">View</a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/Terraform-AKS" target="_blank"><img src="images/img/portfolio-3.PNG" alt="Terraform AKS"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Terraform AKS Cluster</h3>
+                            <p class="project-card-desc">Provision a production-ready Azure Kubernetes Service (AKS) cluster with Terraform — networking, RBAC, and node pools.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge terraform">Terraform</span>
+                                <span class="tech-badge azure">Azure</span>
+                                <span class="tech-badge kubernetes">AKS</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/Terraform-AKS" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/Terraform-AKS" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank"><img src="images/img/portfolio-4.PNG" alt="GCP Terraform"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">GCP Resources via Terraform</h3>
+                            <p class="project-card-desc">Modular Terraform code to spin up Google Cloud resources — VPCs, Compute, IAM and storage with reusable variables.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge terraform">Terraform</span>
+                                <span class="tech-badge gcp">GCP</span>
+                                <span class="tech-badge">IaC</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank"><img src="images/img/portfolio-5.PNG" alt="Ansible URI Module"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">stable</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Ansible URI Module</h3>
+                            <p class="project-card-desc">Example playbook demonstrating Ansible's URI module for HTTP/REST API automation across managed nodes.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge ansible">Ansible</span>
+                                <span class="tech-badge">Automation</span>
+                                <span class="tech-badge">REST API</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/ECS-automation" target="_blank"><img src="images/img/portfolio-7.png" alt="ECS Automation"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">ECS Automation</h3>
+                            <p class="project-card-desc">Automate Amazon ECS cluster provisioning and task deployment using AWS CDK with custom Docker images.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">ECS</span>
+                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge">AWS CDK</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/ECS-automation" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/ECS-automation" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/cdk-monitoring" target="_blank"><img src="images/img/portfolio-8.png" alt="Monitoring Automation"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">monitoring</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Monitoring Automation</h3>
+                            <p class="project-card-desc">CDK construct that automates CloudWatch alarms, dashboards, and SNS notifications for AWS workloads.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">CloudWatch</span>
+                                <span class="tech-badge">AWS CDK</span>
+                                <span class="tech-badge">Observability</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/cdk-monitoring" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/cdk-monitoring" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="project-card-image">
+                            <a href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"><img src="images/img/portfolio-6.PNG" alt="Flask API"></a>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">running</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Flask + PostgreSQL API</h3>
+                            <p class="project-card-desc">Containerized REST API built with Flask and PostgreSQL, ready for deployment with Docker Compose.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge python">Flask</span>
+                                <span class="tech-badge">PostgreSQL</span>
+                                <span class="tech-badge docker">Docker</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Portfolio End -->
 
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-              <div class="portfolio-wrap">
-                  <div class="portfolio-img">
-                    <a href="https://github.com/vishnus17/ECS-automation" target="_blank">  <img src="images/img/portfolio-8.png" alt="Image"></a>
-                  </div>
-                  <div class="portfolio-text">
-                      <h3>Monitoring automation</h3>
-                      <a class="btn" href="https://github.com/vishnus17/cdk-monitoring" target="_blank">View</a>
-                  </div>
-              </div>
-          </div>
-                      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp " data-wow-delay="0.0s">
-                      <div class="portfolio-wrap">
-                      <div class="portfolio-img">
-                        <a href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"> <img src="images/img/portfolio-6.PNG" alt="Image"></a>
-                      </div>
-                      <div class="portfolio-text">
-                          <h3>Flask Api</h3>
-                          <a class="btn" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank">View</a>
-                      </div>
-                  </div>
-              </div> </div> <br>
-              <div class="row">
-                <br>
-          </div>
-      </div>
-    </div></div>
-      <!-- Portfolio End -->
-
-    <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+    <!-- RESUME -->
+    <section class="resume py-5" id="resume">
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4">Experience</h2>
+                <div class="col-lg-6 col-12 reveal">
+                    <div class="section-header-modern">
+                        <span class="terminal-prompt">
+                            <span class="prompt-symbol">$</span>
+                            <span class="prompt-path">~/career</span>
+                            <span class="prompt-cmd">git log --pretty=oneline</span>
+                            <span class="blink-cursor"></span>
+                        </span>
+                        <h2 class="mb-4">Experience</h2>
+                    </div>
 
-                    <div class="timeline">
-                      <div class="timeline-wrapper"><font-color="white">October</font>
-                        <div class="timeline-yr">
-                             <span>2023</span>
-                             
-                        </div>
-                        <div class="timeline-info">
-                             <h3><span>Cloud Engineer 2</span><a href="https://www.appmastery.co/"><small>App Mastery</small></h3></a>
-                             <p>Responsible for handling multiple projects and deliverables within the company and for maintaining the performance, scalability, and reliability of different infrastructures.</p>
-                        </div>
-                   </div>
-
-                        <div class="timeline-wrapper"><font-color="white">July</font>
-                             <div class="timeline-yr">
-                                  <span>2022</span>
-                                  
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Cloud Engineer</span><a href="https://www.appmastery.co/"><small>App Mastery</small></h3></a>
-                                  <p>Develop and implement cloud solutions for various application architectures and programmatic integration of cloud applications, data services, and infrastructure ....</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper"><font-color="white">May</font>
+                    <div class="timeline timeline-modern">
+                        <div class="timeline-wrapper">
                             <div class="timeline-yr">
+                                <i class="uil uil-cloud"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Oct 2023 — Present</span>
+                                <h3><span>Cloud Engineer II</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
+                                <p>Lead multiple cloud projects and deliverables, maintaining the performance, scalability, and reliability of production infrastructure across AWS and Azure.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge terraform">Terraform</span>
+                                    <span class="tech-badge kubernetes">K8s</span>
+                                    <span class="tech-badge docker">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-server-network"></i>
                                 <span>2022</span>
                             </div>
                             <div class="timeline-info">
-                                <h3><span>DevOps Engineer</span><small>Gritfy Technologies</small></h3>
-                                <p>Building and setting up new development tools and infrastructure using DevOps practices ....</p>
+                                <span class="timeline-month">Jul 2022 — Sep 2023</span>
+                                <h3><span>Cloud Engineer</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
+                                <p>Designed and shipped cloud solutions for diverse application architectures — programmatic integration of cloud apps, data services, and infrastructure.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS CDK</span>
+                                    <span class="tech-badge">CloudFormation</span>
+                                    <span class="tech-badge python">Python</span>
+                                    <span class="tech-badge node">Node.js</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="timeline-wrapper"><font-color="white">April</font>
+                        <div class="timeline-wrapper">
                             <div class="timeline-yr">
+                                <i class="uil uil-processor"></i>
                                 <span>2022</span>
                             </div>
                             <div class="timeline-info">
-                                <h3><span>DevOps Freelancer<small>Upwork</small></h3>
-                                <p>Providing DevOps services for clients, implement solutions,etc.</p>
+                                <span class="timeline-month">May 2022 — Jul 2022</span>
+                                <h3><span>DevOps Engineer</span> <small>Gritfy Technologies</small></h3>
+                                <p>Built and set up modern development tools and infrastructure following DevOps best practices — pipelines, automation, and monitoring.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge">Jenkins</span>
+                                    <span class="tech-badge ansible">Ansible</span>
+                                    <span class="tech-badge docker">Docker</span>
+                                    <span class="tech-badge github">Git</span>
+                                </div>
                             </div>
                         </div>
 
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-laptop-cloud"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Apr 2022 — May 2022</span>
+                                <h3><span>DevOps Freelancer</span> <small>Upwork</small></h3>
+                                <p>Delivered DevOps services to international clients — implementing CI/CD, IaC, and cloud migration solutions tailored to each project.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge terraform">Terraform</span>
+                                    <span class="tech-badge">CI/CD</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4 mobile-mt-2">Education</h2>
+                <div class="col-lg-6 col-12 reveal">
+                    <div class="section-header-modern mobile-mt-2">
+                        <span class="terminal-prompt">
+                            <span class="prompt-symbol">$</span>
+                            <span class="prompt-path">~/edu</span>
+                            <span class="prompt-cmd">cat education.yaml</span>
+                            <span class="blink-cursor"></span>
+                        </span>
+                        <h2 class="mb-4">Education</h2>
+                    </div>
 
-                    <div class="timeline">
+                    <div class="timeline timeline-modern">
                         <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2023</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>B.Tech Computer Science Engineering</span></h3>
-                                  <p>Indian Institute of Information Technology Kottayam</p>
-                                  <p> CGPA - 8.185</p>
-                             </div>
+                            <div class="timeline-yr">
+                                <i class="uil uil-graduation-hat"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">2019 — 2023</span>
+                                <h3><span>B.Tech, Computer Science Engineering</span></h3>
+                                <p>Indian Institute of Information Technology Kottayam</p>
+                                <span class="timeline-meta"><i class="uil uil-chart-line"></i>CGPA 8.185 / 10</span>
+                                <span class="timeline-meta"><i class="uil uil-award"></i>LiFT'22 Scholar</span>
+                            </div>
                         </div>
 
                         <div class="timeline-wrapper">
                             <div class="timeline-yr">
+                                <i class="uil uil-book-open"></i>
                                 <span>2018</span>
                             </div>
                             <div class="timeline-info">
+                                <span class="timeline-month">2016 — 2018</span>
                                 <h3><span>Higher Secondary</span></h3>
                                 <p>GHSS Korom</p>
-                                <p>Percentage - 98%</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2016</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>10th STD</span></h3>
-                                <p>Chinmaya Vidyalaya Payyanur</p>
-                                <p>CGPA - 10.0</p>
+                                <span class="timeline-meta"><i class="uil uil-chart-line"></i>98%</span>
                             </div>
                         </div>
 
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-books"></i>
+                                <span>2016</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">2015 — 2016</span>
+                                <h3><span>10th STD</span></h3>
+                                <p>Chinmaya Vidyalaya Payyanur</p>
+                                <span class="timeline-meta"><i class="uil uil-chart-line"></i>CGPA 10.0 / 10</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
