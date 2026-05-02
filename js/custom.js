@@ -59,4 +59,45 @@
         });
     });
 
+    // PIPELINE PROGRESS: highlight the currently visible stage in the summary banner
+    var pipelineStages = document.querySelectorAll('.pipeline-stage[data-stage]');
+    var sectionMap = {};
+    pipelineStages.forEach(function(stage) {
+        var id = stage.getAttribute('data-stage');
+        var section = document.getElementById(id);
+        if (section) sectionMap[id] = section;
+    });
+
+    function updateActiveStage() {
+        var scrollY = window.pageYOffset + window.innerHeight * 0.35;
+        var activeId = null;
+        Object.keys(sectionMap).forEach(function(id) {
+            var section = sectionMap[id];
+            var top = section.getBoundingClientRect().top + window.pageYOffset;
+            if (scrollY >= top) activeId = id;
+        });
+
+        pipelineStages.forEach(function(stage) {
+            if (stage.getAttribute('data-stage') === activeId) {
+                stage.classList.add('is-active');
+            } else {
+                stage.classList.remove('is-active');
+            }
+        });
+    }
+
+    if (pipelineStages.length) {
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateActiveStage();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+        updateActiveStage();
+    }
+
 })(jQuery);

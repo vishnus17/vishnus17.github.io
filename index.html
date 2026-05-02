@@ -101,17 +101,76 @@
         </div>
     </section>
 
+    <!-- PIPELINE OVERVIEW -->
+    <section class="pipeline-summary">
+        <div class="container">
+            <div class="pipeline-summary-inner reveal">
+                <div class="pipeline-summary-header">
+                    <div class="pipeline-summary-title">
+                        <i class="uil uil-processor" style="color:#ffc200;font-size:18px;"></i>
+                        portfolio.yml
+                        <span class="branch-pill">⎇ main</span>
+                    </div>
+                    <div class="pipeline-summary-meta">
+                        <span><span class="meta-ok">●</span> all stages passed</span>
+                        <span>build #2026.05</span>
+                        <span>12.4s</span>
+                    </div>
+                </div>
+                <div class="pipeline-stages">
+                    <a href="#articles" class="pipeline-stage" data-stage="articles">
+                        <span class="stage-icon"></span>
+                        articles
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#project" class="pipeline-stage" data-stage="project">
+                        <span class="stage-icon"></span>
+                        projects
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#resume" class="pipeline-stage" data-stage="resume">
+                        <span class="stage-icon"></span>
+                        experience
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#resume" class="pipeline-stage" data-stage="education">
+                        <span class="stage-icon"></span>
+                        education
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#contact" class="pipeline-stage" data-stage="contact">
+                        <span class="stage-icon"></span>
+                        deploy
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active" aria-hidden="true">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
     <!-- Articles -->
     <section class="articles-modern py-5" id="articles">
         <div class="container">
-            <div class="section-header-modern reveal">
-                <span class="terminal-prompt">
-                    <span class="prompt-symbol">$</span>
-                    <span class="prompt-path">~/blog</span>
-                    <span class="prompt-cmd">cat recent-posts.md</span>
-                    <span class="blink-cursor"></span>
-                </span>
-                <h2>Articles</h2>
+            <div class="stage-wrap-center">
+                <div class="stage-card reveal">
+                    <div class="stage-card-meta">
+                        <span class="stage-id">stage_01 / articles</span>
+                        <span class="stage-status-pill passed">passed</span>
+                        <span class="stage-duration">2.4s</span>
+                    </div>
+                    <span class="terminal-prompt">
+                        <span class="prompt-symbol">$</span>
+                        <span class="prompt-path">~/blog</span>
+                        <span class="prompt-cmd">cat recent-posts.md</span>
+                        <span class="blink-cursor"></span>
+                    </span>
+                    <h2>Articles</h2>
+                </div>
             </div>
 
             <div class="row reveal-stagger">
@@ -244,37 +303,73 @@
         </div>
     </section>
 
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active" aria-hidden="true">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
     <!-- Projects-->
     <div class="portfolio" id="project">
         <div class="container">
-            <div class="section-header-modern reveal text-center">
-                <span class="terminal-prompt">
-                    <span class="prompt-symbol">$</span>
-                    <span class="prompt-path">~/projects</span>
-                    <span class="prompt-cmd">ls --all --tech</span>
-                    <span class="blink-cursor"></span>
-                </span>
-                <h2>Projects</h2>
+            <div class="stage-wrap-center">
+                <div class="stage-card reveal">
+                    <div class="stage-card-meta">
+                        <span class="stage-id">stage_02 / projects</span>
+                        <span class="stage-status-pill passed">passed</span>
+                        <span class="stage-duration">5.1s</span>
+                    </div>
+                    <span class="terminal-prompt">
+                        <span class="prompt-symbol">$</span>
+                        <span class="prompt-path">~/projects</span>
+                        <span class="prompt-cmd">ls --all --tech</span>
+                        <span class="blink-cursor"></span>
+                    </span>
+                    <h2>Projects</h2>
+                </div>
             </div>
 
             <div class="row reveal-stagger">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><img src="images/img/portfolio-1.PNG" alt="Firebase CI/CD Pipeline"></a>
-                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">💸</span>analyzer.ts</span>
+                                <span class="code-preview-tab">FinOps · AI</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">const</span> <span class="tk-var">recs</span> = <span class="tk-keyword">await</span> <span class="tk-var">analyzer</span>.<span class="tk-fn">analyze</span>(<span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">accounts</span><span class="tk-punc">:</span> <span class="tk-fn">listAwsAccounts</span>(),</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">window</span><span class="tk-punc">:</span> <span class="tk-string">'7d'</span>,</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">model</span><span class="tk-punc">:</span> <span class="tk-string">'cost-optimizer-v2'</span>,</div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-var">recs</span>.<span class="tk-fn">forEach</span>(<span class="tk-var">r</span> =&gt; <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent"></span><span class="tk-fn">log</span>(<span class="tk-string">`${r.service}: $${r.savings}/mo`</span>)</div>
+                                <div class="code-line"><span class="ln">8</span><span class="tk-punc">})</span> <span class="tk-comment"># savings surfaced</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">scan · 32% saved</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">running</span></span>
                         </div>
                         <div class="project-card-body">
-                            <h3 class="project-card-title">Firebase CI/CD Pipeline</h3>
-                            <p class="project-card-desc">Automated React Native deployment pipeline with Firebase, enabling seamless mobile app delivery on every push.</p>
+                            <h3 class="project-card-title">CostOps AI</h3>
+                            <p class="project-card-desc">AI-driven cloud cost optimization platform that scans AWS accounts and surfaces actionable savings recommendations.</p>
                             <div class="project-card-tags">
-                                <span class="tech-badge firebase">Firebase</span>
-                                <span class="tech-badge">React Native</span>
-                                <span class="tech-badge">CI/CD</span>
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge node">Node.js</span>
+                                <span class="tech-badge">FinOps</span>
+                                <span class="tech-badge">AI</span>
                             </div>
                             <div class="project-card-actions">
-                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><i class="uil uil-eye"></i> View</a>
-                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/costops-ai" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/costops-ai" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
                             </div>
                         </div>
                     </div>
@@ -282,21 +377,45 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank"><img src="images/img/portfolio-2.PNG" alt="Terraform AWS Lambda"></a>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🚀</span>pipeline-stack.ts</span>
+                                <span class="code-preview-tab">CDK · CI/CD</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">new</span> <span class="tk-fn">CodePipeline</span>(<span class="tk-var">this</span>, <span class="tk-string">'Pipeline'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">source</span><span class="tk-punc">:</span> <span class="tk-fn">GitHubSource</span>(<span class="tk-string">'app'</span>, <span class="tk-string">'main'</span>),</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">build</span><span class="tk-punc">:</span> <span class="tk-keyword">new</span> <span class="tk-fn">ShellStep</span>(<span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent2"></span><span class="tk-prop">commands</span><span class="tk-punc">:</span> [<span class="tk-string">'docker build'</span>, <span class="tk-string">'ecr push'</span>],</div>
+                                <div class="code-line"><span class="ln">5</span><span class="indent"></span><span class="tk-punc">}</span>),</div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent"></span><span class="tk-prop">deploy</span><span class="tk-punc">:</span> <span class="tk-keyword">new</span> <span class="tk-fn">EcsDeployAction</span>(<span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="tk-var">cluster</span>, <span class="tk-var">service</span>, <span class="tk-prop">strategy</span><span class="tk-punc">:</span> <span class="tk-string">'blue/green'</span></div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-punc">}</span>),</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-punc">})</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">deploy · 4m 12s</span>
+                            </div>
                             <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
                         </div>
                         <div class="project-card-body">
-                            <h3 class="project-card-title">Terraform AWS Lambda</h3>
-                            <p class="project-card-desc">Infrastructure as Code module to provision AWS Lambda functions with IAM roles and event source mappings.</p>
+                            <h3 class="project-card-title">Container CI/CD with CDK</h3>
+                            <p class="project-card-desc">End-to-end CDK pipeline that builds container images, pushes to ECR, and rolls out blue/green deploys to ECS Fargate.</p>
                             <div class="project-card-tags">
-                                <span class="tech-badge terraform">Terraform</span>
-                                <span class="tech-badge aws">AWS Lambda</span>
-                                <span class="tech-badge">IaC</span>
+                                <span class="tech-badge aws">AWS CDK</span>
+                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge">ECS</span>
+                                <span class="tech-badge">CodePipeline</span>
                             </div>
                             <div class="project-card-actions">
-                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank"><i class="uil uil-eye"></i> View</a>
-                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/cicd-container-deployment-cdk" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/cicd-container-deployment-cdk" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
                             </div>
                         </div>
                     </div>
@@ -304,21 +423,44 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/Terraform-AKS" target="_blank"><img src="images/img/portfolio-3.PNG" alt="Terraform AKS"></a>
-                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">☸</span>application.yaml</span>
+                                <span class="code-preview-tab">GitOps</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-prop">apiVersion</span><span class="tk-punc">:</span> <span class="tk-string">argoproj.io/v1alpha1</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="tk-prop">kind</span><span class="tk-punc">:</span> <span class="tk-string">Application</span></div>
+                                <div class="code-line"><span class="ln">3</span><span class="tk-prop">metadata</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">name</span><span class="tk-punc">:</span> <span class="tk-string">web-app</span></div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-prop">spec</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent"></span><span class="tk-prop">source</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="tk-prop">repoURL</span><span class="tk-punc">:</span> <span class="tk-string">github.com/vishnus17/app</span></div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent2"></span><span class="tk-prop">path</span><span class="tk-punc">:</span> <span class="tk-string">k8s/manifests</span></div>
+                                <div class="code-line"><span class="ln">9</span><span class="indent"></span><span class="tk-prop">syncPolicy</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">automated</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">prune</span><span class="tk-punc">:</span> <span class="tk-bool">true</span> <span class="tk-punc">}</span> <span class="tk-punc">}</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">synced · healthy</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">synced</span></span>
                         </div>
                         <div class="project-card-body">
-                            <h3 class="project-card-title">Terraform AKS Cluster</h3>
-                            <p class="project-card-desc">Provision a production-ready Azure Kubernetes Service (AKS) cluster with Terraform — networking, RBAC, and node pools.</p>
+                            <h3 class="project-card-title">ArgoCD GitOps Workflow</h3>
+                            <p class="project-card-desc">Reference Kubernetes GitOps setup with Argo CD — declarative app sync, auto-prune, and self-heal policies for drift-free clusters.</p>
                             <div class="project-card-tags">
-                                <span class="tech-badge terraform">Terraform</span>
-                                <span class="tech-badge azure">Azure</span>
-                                <span class="tech-badge kubernetes">AKS</span>
+                                <span class="tech-badge kubernetes">Kubernetes</span>
+                                <span class="tech-badge">Argo CD</span>
+                                <span class="tech-badge">GitOps</span>
                             </div>
                             <div class="project-card-actions">
-                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/Terraform-AKS" target="_blank"><i class="uil uil-eye"></i> View</a>
-                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/Terraform-AKS" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/argocd-prac" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/argocd-prac" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
                             </div>
                         </div>
                     </div>
@@ -326,43 +468,44 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank"><img src="images/img/portfolio-4.PNG" alt="GCP Terraform"></a>
-                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-card-title">GCP Resources via Terraform</h3>
-                            <p class="project-card-desc">Modular Terraform code to spin up Google Cloud resources — VPCs, Compute, IAM and storage with reusable variables.</p>
-                            <div class="project-card-tags">
-                                <span class="tech-badge terraform">Terraform</span>
-                                <span class="tech-badge gcp">GCP</span>
-                                <span class="tech-badge">IaC</span>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🐍</span>tf_orchestrator.py</span>
+                                <span class="code-preview-tab">Python · IaC</span>
                             </div>
-                            <div class="project-card-actions">
-                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank"><i class="uil uil-eye"></i> View</a>
-                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">def</span> <span class="tk-fn">deploy</span>(<span class="tk-var">env</span><span class="tk-punc">,</span> <span class="tk-var">dry_run</span>=<span class="tk-bool">False</span>)<span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-var">tf</span> = <span class="tk-fn">Terraform</span>(<span class="tk-prop">workdir</span>=<span class="tk-string">f'envs/{env}'</span>)</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-var">tf</span>.<span class="tk-fn">init</span>()</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-var">plan</span> = <span class="tk-var">tf</span>.<span class="tk-fn">plan</span>(<span class="tk-prop">out</span>=<span class="tk-string">'plan.tfplan'</span>)</div>
+                                <div class="code-line"><span class="ln">5</span><span class="indent"></span><span class="tk-keyword">if</span> <span class="tk-var">plan</span>.<span class="tk-prop">has_changes</span> <span class="tk-keyword">and not</span> <span class="tk-var">dry_run</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent2"></span><span class="tk-keyword">if</span> <span class="tk-fn">approve</span>(<span class="tk-var">plan</span>)<span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="indent"></span><span class="tk-var">tf</span>.<span class="tk-fn">apply</span>(<span class="tk-string">'plan.tfplan'</span>)</div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-keyword">return</span> <span class="tk-var">plan</span>.<span class="tk-prop">summary</span>()</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-comment"># gated apply · safe rollback</span></div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank"><img src="images/img/portfolio-5.PNG" alt="Ansible URI Module"></a>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">apply · 0 errors</span>
+                            </div>
                             <span class="project-status"><span class="status-dot"></span><span class="status-text">stable</span></span>
                         </div>
                         <div class="project-card-body">
-                            <h3 class="project-card-title">Ansible URI Module</h3>
-                            <p class="project-card-desc">Example playbook demonstrating Ansible's URI module for HTTP/REST API automation across managed nodes.</p>
+                            <h3 class="project-card-title">Terraform Automation in Python</h3>
+                            <p class="project-card-desc">Python orchestration layer over Terraform — parameterized plan/apply with approval gates and a clean rollback path.</p>
                             <div class="project-card-tags">
-                                <span class="tech-badge ansible">Ansible</span>
+                                <span class="tech-badge python">Python</span>
+                                <span class="tech-badge terraform">Terraform</span>
                                 <span class="tech-badge">Automation</span>
-                                <span class="tech-badge">REST API</span>
                             </div>
                             <div class="project-card-actions">
-                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank"><i class="uil uil-eye"></i> View</a>
-                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/terraform-automation-python" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/terraform-automation-python" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
                             </div>
                         </div>
                     </div>
@@ -370,8 +513,76 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/ECS-automation" target="_blank"><img src="images/img/portfolio-7.png" alt="ECS Automation"></a>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🔐</span>oidc-stack.ts</span>
+                                <span class="code-preview-tab">OIDC · CDK</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">new</span> <span class="tk-fn">OpenIdConnectProvider</span>(<span class="tk-var">this</span>, <span class="tk-string">'GitHubIdP'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">url</span><span class="tk-punc">:</span> <span class="tk-string">'https://token.actions.github.com'</span>,</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">clientIds</span><span class="tk-punc">:</span> [<span class="tk-string">'sts.amazonaws.com'</span>],</div>
+                                <div class="code-line"><span class="ln">4</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-keyword">new</span> <span class="tk-fn">Role</span>(<span class="tk-var">this</span>, <span class="tk-string">'DeployRole'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent"></span><span class="tk-prop">assumedBy</span><span class="tk-punc">:</span> <span class="tk-keyword">new</span> <span class="tk-fn">FederatedPrincipal</span>(<span class="tk-var">idp</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="tk-string">'token.actions:sub'</span><span class="tk-punc">:</span> <span class="tk-string">`repo:${repo}:ref:main`</span>,</div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-punc">}</span>),</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-punc">})</span> <span class="tk-comment"># zero long-lived keys</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">keyless · audited</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">GitHub OIDC → AWS Deploy</h3>
+                            <p class="project-card-desc">Keyless GitHub Actions to AWS deployments via OIDC federation — provisions the IdP, IAM role, and scoped trust policy via CDK.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">CDK</span>
+                                <span class="tech-badge github">GitHub</span>
+                                <span class="tech-badge">OIDC</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/oidc-ec2-deployment-cdk-infra" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/oidc-ec2-deployment-cdk-infra" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">⛴</span>ecs-stack.ts</span>
+                                <span class="code-preview-tab">CDK</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">import</span> * <span class="tk-keyword">as</span> <span class="tk-var">ecs</span> <span class="tk-keyword">from</span> <span class="tk-string">'aws-cdk-lib/ecs'</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="tk-keyword">const</span> <span class="tk-var">cluster</span> = <span class="tk-keyword">new</span> <span class="tk-fn">ecs.Cluster</span>(<span class="tk-var">this</span>, <span class="tk-string">'Cluster'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">vpc</span>, <span class="tk-prop">capacity</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">instanceType</span><span class="tk-punc">:</span> <span class="tk-string">'t3.small'</span> <span class="tk-punc">}</span></div>
+                                <div class="code-line"><span class="ln">4</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-keyword">const</span> <span class="tk-var">task</span> = <span class="tk-keyword">new</span> <span class="tk-fn">ecs.FargateTaskDefinition</span>(<span class="tk-punc">...</span>)</div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-var">task</span>.<span class="tk-fn">addContainer</span>(<span class="tk-string">'app'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent"></span><span class="tk-prop">image</span><span class="tk-punc">:</span> <span class="tk-fn">ContainerImage.fromAsset</span>(<span class="tk-string">'./app'</span>)</div>
+                                <div class="code-line"><span class="ln">8</span><span class="tk-punc">})</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">cdk deploy · success</span>
+                            </div>
                             <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
                         </div>
                         <div class="project-card-body">
@@ -392,8 +603,31 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/cdk-monitoring" target="_blank"><img src="images/img/portfolio-8.png" alt="Monitoring Automation"></a>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">📈</span>monitoring.ts</span>
+                                <span class="code-preview-tab">Observability</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">new</span> <span class="tk-fn">cloudwatch.Alarm</span>(<span class="tk-var">this</span>, <span class="tk-string">'CpuHigh'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">metric</span><span class="tk-punc">:</span> <span class="tk-var">service</span>.<span class="tk-fn">metricCpuUtilization</span>(),</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">threshold</span><span class="tk-punc">:</span> <span class="tk-num">80</span>,</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">evaluationPeriods</span><span class="tk-punc">:</span> <span class="tk-num">2</span>,</div>
+                                <div class="code-line"><span class="ln">5</span><span class="indent"></span><span class="tk-prop">alarmDescription</span><span class="tk-punc">:</span> <span class="tk-string">'CPU > 80%'</span>,</div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-punc">}</span>).<span class="tk-fn">addAlarmAction</span>(<span class="tk-keyword">new</span> <span class="tk-fn">SnsAction</span>(<span class="tk-var">topic</span>))</div>
+                                <div class="code-line"><span class="ln">7</span><span class="tk-keyword">new</span> <span class="tk-fn">Dashboard</span>(<span class="tk-var">this</span>, <span class="tk-string">'Ops'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-prop">widgets</span><span class="tk-punc">:</span> [[<span class="tk-var">cpuWidget</span>, <span class="tk-var">memWidget</span>]]</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-punc">}</span>)</div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">14 alarms · armed</span>
+                            </div>
                             <span class="project-status"><span class="status-dot"></span><span class="status-text">monitoring</span></span>
                         </div>
                         <div class="project-card-body">
@@ -414,21 +648,44 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="project-card-modern">
-                        <div class="project-card-image">
-                            <a href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"><img src="images/img/portfolio-6.PNG" alt="Flask API"></a>
-                            <span class="project-status"><span class="status-dot"></span><span class="status-text">running</span></span>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🖼</span>image-handler.ts</span>
+                                <span class="code-preview-tab">Serverless</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">const</span> <span class="tk-var">handler</span> = <span class="tk-keyword">new</span> <span class="tk-fn">NodejsFunction</span>(<span class="tk-var">this</span>, <span class="tk-string">'ImgFn'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">entry</span><span class="tk-punc">:</span> <span class="tk-string">'src/handler.ts'</span>,</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">memorySize</span><span class="tk-punc">:</span> <span class="tk-num">1024</span>,</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">timeout</span><span class="tk-punc">:</span> <span class="tk-fn">Duration.seconds</span>(<span class="tk-num">15</span>),</div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-keyword">new</span> <span class="tk-fn">Distribution</span>(<span class="tk-var">this</span>, <span class="tk-string">'CDN'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent"></span><span class="tk-prop">defaultBehavior</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">origin</span><span class="tk-punc">:</span> <span class="tk-fn">FnUrl</span>(<span class="tk-var">handler</span>) <span class="tk-punc">}</span>,</div>
+                                <div class="code-line"><span class="ln">8</span><span class="tk-punc">})</span> <span class="tk-comment"># single-stack rewrite ⭐3</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">cold start &lt; 200ms</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
                         </div>
                         <div class="project-card-body">
-                            <h3 class="project-card-title">Flask + PostgreSQL API</h3>
-                            <p class="project-card-desc">Containerized REST API built with Flask and PostgreSQL, ready for deployment with Docker Compose.</p>
+                            <h3 class="project-card-title">Serverless Image Handler v2</h3>
+                            <p class="project-card-desc">Simplified single-stack CDK rewrite of AWS Solutions' Serverless Image Handler — Lambda + CloudFront + S3, deploy in one command.</p>
                             <div class="project-card-tags">
-                                <span class="tech-badge python">Flask</span>
-                                <span class="tech-badge">PostgreSQL</span>
-                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">CDK v2</span>
+                                <span class="tech-badge">Lambda</span>
+                                <span class="tech-badge">CloudFront</span>
                             </div>
                             <div class="project-card-actions">
-                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"><i class="uil uil-eye"></i> View</a>
-                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/serverless-image-handler-cdkv2" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/serverless-image-handler-cdkv2" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
                             </div>
                         </div>
                     </div>
@@ -438,20 +695,31 @@
     </div>
     <!-- Portfolio End -->
 
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active" aria-hidden="true">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
     <!-- RESUME -->
     <section class="resume py-5" id="resume">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-6 col-12 reveal">
-                    <div class="section-header-modern">
+                    <div class="stage-card mb-4">
+                        <div class="stage-card-meta">
+                            <span class="stage-id">stage_03 / experience</span>
+                            <span class="stage-status-pill running">running</span>
+                            <span class="stage-duration">3+ yrs</span>
+                        </div>
                         <span class="terminal-prompt">
                             <span class="prompt-symbol">$</span>
                             <span class="prompt-path">~/career</span>
                             <span class="prompt-cmd">git log --pretty=oneline</span>
                             <span class="blink-cursor"></span>
                         </span>
-                        <h2 class="mb-4">Experience</h2>
+                        <h2>Experience</h2>
                     </div>
 
                     <div class="timeline timeline-modern">
@@ -529,14 +797,19 @@
                 </div>
 
                 <div class="col-lg-6 col-12 reveal">
-                    <div class="section-header-modern mobile-mt-2">
+                    <div class="stage-card mb-4 mobile-mt-2">
+                        <div class="stage-card-meta">
+                            <span class="stage-id">stage_04 / education</span>
+                            <span class="stage-status-pill passed">passed</span>
+                            <span class="stage-duration">7 yrs</span>
+                        </div>
                         <span class="terminal-prompt">
                             <span class="prompt-symbol">$</span>
                             <span class="prompt-path">~/edu</span>
                             <span class="prompt-cmd">cat education.yaml</span>
                             <span class="blink-cursor"></span>
                         </span>
-                        <h2 class="mb-4">Education</h2>
+                        <h2>Education</h2>
                     </div>
 
                     <div class="timeline timeline-modern">
@@ -586,9 +859,31 @@
         </div>
     </section>
     
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active" aria-hidden="true">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
     <!-- CONTACT -->
     <section class="contact py-5" id="contact">
       <div class="container">
+        <div class="stage-wrap-center">
+            <div class="stage-card reveal">
+                <div class="stage-card-meta">
+                    <span class="stage-id">stage_05 / deploy</span>
+                    <span class="stage-status-pill running">awaiting input</span>
+                    <span class="stage-duration">manual trigger</span>
+                </div>
+                <span class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-path">~/contact</span>
+                    <span class="prompt-cmd">curl --connect</span>
+                    <span class="blink-cursor"></span>
+                </span>
+                <h2>Get in touch</h2>
+            </div>
+        </div>
         <div class="row">
           <div class="col-lg-6 col-12">
                   <img src="images/undraw/74908-girl-chatting-with-online-friends.gif" style="position: relative; width: 80%;" class="img-fluid" alt="svg image">
@@ -597,9 +892,6 @@
           <div class="col-lg-6 col col-12 ">
                   <div class="contact-form">
                     <br>
-                    <br>
-                    <br>
-                      <h2 class="mb-4">Get in touch</h2>
                       <form action="https://formspree.io/f/mlevgdop" method="POST">
                           <div class="row">
                               <div class="col-lg-6 col-12">
