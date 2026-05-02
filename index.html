@@ -19,8 +19,20 @@
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
+    <noscript><style>body.pipeline-locked .pipeline-section,body.pipeline-not-started .pipeline-summary{display:revert !important}.pipeline-locked-teaser{display:none !important}</style></noscript>
   </head>
-  <body>
+  <body class="pipeline-locked pipeline-not-started">
+    <script>
+      // Unlock immediately for returning visitors so they don't see a flash of the lock state.
+      (function() {
+        try {
+          if (localStorage.getItem('pipelineHasRun') === '1') {
+            document.body.classList.remove('pipeline-locked');
+            document.body.classList.remove('pipeline-not-started');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
@@ -101,10 +113,48 @@
         </div>
     </section>
 
+    <!-- Pipeline locked teaser (visible only before the user kicks off the pipeline) -->
+    <section class="pipeline-locked-teaser" id="pipelineLockedTeaser" aria-live="polite">
+        <div class="container">
+            <div class="locked-teaser-card reveal">
+                <div class="locked-teaser-icon" aria-hidden="true">
+                    <i class="uil uil-padlock"></i>
+                </div>
+                <div class="locked-teaser-body">
+                    <span class="locked-teaser-eyebrow">awaiting trigger</span>
+                    <h3>Portfolio contents are locked</h3>
+                    <p>Click <strong>▶ Start Pipeline</strong> to unlock all stages and reveal the full portfolio.</p>
+                    <div class="locked-teaser-stages">
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>articles</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>projects</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>experience</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>education</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>connect</span>
+                    </div>
+                </div>
+                <div class="locked-teaser-cta-group">
+                    <span class="cta-prompt-arrow" aria-hidden="true">
+                        <span class="prompt-text">click here</span>
+                        <svg class="prompt-arrow-svg" viewBox="0 0 36 14" width="36" height="14" fill="none">
+                            <path d="M2 7 H28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+                            <path d="M24 2 L31 7 L24 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </span>
+                    <button type="button" class="locked-teaser-cta" id="lockedTeaserCta">
+                        <span class="cta-icon" aria-hidden="true">
+                            <svg viewBox="0 0 16 16" width="12" height="12"><polygon points="3,2 14,8 3,14" fill="currentColor"/></svg>
+                        </span>
+                        Start Pipeline
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PIPELINE OVERVIEW -->
     <section class="pipeline-summary">
         <div class="container">
-            <div class="pipeline-summary-inner reveal">
+            <div class="pipeline-summary-inner reveal" id="pipelineSummary">
                 <div class="pipeline-summary-header">
                     <div class="pipeline-summary-title">
                         <i class="uil uil-processor" style="color:#ffc200;font-size:18px;"></i>
@@ -112,49 +162,100 @@
                         <span class="branch-pill">⎇ main</span>
                     </div>
                     <div class="pipeline-summary-meta">
-                        <span><span class="meta-ok">●</span> all stages passed</span>
+                        <span id="pipelineStatusLabel"><span class="meta-idle">○</span> awaiting trigger</span>
                         <span>build #2026.05</span>
-                        <span>12.4s</span>
+                        <span id="pipelineDurationLabel">--</span>
                     </div>
                 </div>
-                <div class="pipeline-stages">
-                    <a href="#articles" class="pipeline-stage" data-stage="articles">
+
+                <div class="pipeline-stages" id="pipelineStages">
+                    <a href="#articles" class="pipeline-stage is-queued" data-stage="articles">
                         <span class="stage-icon"></span>
                         articles
                     </a>
                     <span class="pipeline-arrow">▶</span>
-                    <a href="#project" class="pipeline-stage" data-stage="project">
+                    <a href="#project" class="pipeline-stage is-queued" data-stage="project">
                         <span class="stage-icon"></span>
                         projects
                     </a>
                     <span class="pipeline-arrow">▶</span>
-                    <a href="#resume" class="pipeline-stage" data-stage="resume">
+                    <a href="#resume" class="pipeline-stage is-queued" data-stage="resume">
                         <span class="stage-icon"></span>
                         experience
                     </a>
                     <span class="pipeline-arrow">▶</span>
-                    <a href="#resume" class="pipeline-stage" data-stage="education">
+                    <a href="#resume" class="pipeline-stage is-queued" data-stage="education">
                         <span class="stage-icon"></span>
                         education
                     </a>
                     <span class="pipeline-arrow">▶</span>
-                    <a href="#contact" class="pipeline-stage" data-stage="contact">
+                    <a href="#contact" class="pipeline-stage is-queued" data-stage="contact">
                         <span class="stage-icon"></span>
-                        deploy
+                        connect
                     </a>
                 </div>
+
+                <button type="button" class="pipeline-reset-btn" id="pipelineResetBtn" title="Reset pipeline and clear local cache">
+                    <svg class="reset-btn-icon" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                        <path d="M14 8a6 6 0 1 1 -1.76 -4.24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M14 2v3.5h-3.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>reset</span>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Pipeline connector -->
-    <div class="pipeline-connector active" aria-hidden="true">
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="articles">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
+    <!-- Featured credential -->
+    <section class="featured-credential-section pipeline-section" data-pipeline-section="articles">
+        <div class="container">
+            <div class="featured-credential reveal">
+                <div class="featured-credential-meta">
+                    <span class="stage-id">cert.aws / professional</span>
+                    <span class="stage-status-pill passed">verified</span>
+                    <span class="featured-tag">★ key credential</span>
+                </div>
+                <span class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-path">~/credentials</span>
+                    <span class="prompt-cmd">cat aws-devops-pro.json</span>
+                    <span class="blink-cursor"></span>
+                </span>
+                <a class="credential-badge featured" href="https://www.credly.com/badges/a30c5bf8-679c-4831-99cf-c570308555eb/public_url" target="_blank" rel="noopener">
+                    <div class="credential-icon credential-icon-badge">
+                        <img class="credential-badge-image" src="images/img/cert.png" alt="AWS Certified DevOps Engineer - Professional badge" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.parentNode.classList.add('badge-fallback');" />
+                        <i class="uil uil-award-alt credential-icon-fallback" aria-hidden="true"></i>
+                    </div>
+                    <div class="credential-info">
+                        <h4>AWS Certified DevOps Engineer — Professional</h4>
+                        <span class="credential-issuer">Issued by Amazon Web Services · Credly</span>
+                        <div class="credential-badges">
+                            <span class="tech-badge aws">AWS</span>
+                            <span class="tech-badge">DevOps</span>
+                            <span class="tech-badge">CI/CD</span>
+                            <span class="tech-badge">IaC</span>
+                        </div>
+                    </div>
+                    <span class="credential-verify">verify ↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="articles">
         <div class="connector-line"></div>
         <div class="connector-node"></div>
     </div>
 
     <!-- Articles -->
-    <section class="articles-modern py-5" id="articles">
+    <section class="articles-modern py-5 pipeline-section" id="articles" data-pipeline-section="articles">
         <div class="container">
             <div class="stage-wrap-center">
                 <div class="stage-card reveal">
@@ -304,13 +405,13 @@
     </section>
 
     <!-- Pipeline connector -->
-    <div class="pipeline-connector active" aria-hidden="true">
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="project">
         <div class="connector-line"></div>
         <div class="connector-node"></div>
     </div>
 
     <!-- Projects-->
-    <div class="portfolio" id="project">
+    <div class="portfolio pipeline-section" id="project" data-pipeline-section="project">
         <div class="container">
             <div class="stage-wrap-center">
                 <div class="stage-card reveal">
@@ -696,22 +797,43 @@
     <!-- Portfolio End -->
 
     <!-- Pipeline connector -->
-    <div class="pipeline-connector active" aria-hidden="true">
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="resume">
         <div class="connector-line"></div>
         <div class="connector-node"></div>
     </div>
 
     <!-- RESUME -->
-    <section class="resume py-5" id="resume">
+    <section class="resume py-5 pipeline-section" id="resume" data-pipeline-section="resume">
         <div class="container">
-            <div class="row">
 
-                <div class="col-lg-6 col-12 reveal">
+            <!-- Parallel pipeline fork: stages 03 and 04 run concurrently -->
+            <div class="parallel-pipeline-fork reveal" aria-hidden="true">
+                <div class="fork-meta">
+                    <span class="fork-id">jobs:</span>
+                    <span class="fork-tag">matrix · parallel</span>
+                    <span class="fork-status">2 lanes running</span>
+                </div>
+                <div class="fork-shape">
+                    <span class="fork-stem"></span>
+                    <span class="fork-junction"></span>
+                    <span class="fork-branch fork-branch-left"></span>
+                    <span class="fork-branch fork-branch-right"></span>
+                </div>
+            </div>
+
+            <div class="row parallel-pipeline-row">
+                <div class="parallel-pipeline-rail" aria-hidden="true">
+                    <span class="rail-pulse rail-pulse-middle"></span>
+                    <span class="rail-pulse rail-pulse-bottom"></span>
+                </div>
+
+                <div class="col-lg-6 col-12 reveal lane-col lane-col-experience">
                     <div class="stage-card mb-4">
                         <div class="stage-card-meta">
                             <span class="stage-id">stage_03 / experience</span>
+                            <span class="lane-pill"><span class="lane-dot"></span>lane_a</span>
                             <span class="stage-status-pill running">running</span>
-                            <span class="stage-duration">3+ yrs</span>
+                            <span class="stage-duration">4+ yrs</span>
                         </div>
                         <span class="terminal-prompt">
                             <span class="prompt-symbol">$</span>
@@ -722,16 +844,53 @@
                         <h2>Experience</h2>
                     </div>
 
-                    <div class="timeline timeline-modern">
+                    <div class="timeline timeline-modern lane-experience">
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-rocket"></i>
+                                <span>2025</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">May 2025 — Present</span>
+                                <h3><span>Senior Cloud Engineer</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
+                                <p>Driving cloud architecture and delivery across multi-region AWS workloads — focused on platform reliability, automation, and helping engineers ship safer changes faster from a remote-first setup in Toronto, ON.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge terraform">Terraform</span>
+                                    <span class="tech-badge kubernetes">K8s</span>
+                                    <span class="tech-badge">Platform Eng</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-shield-check"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Oct 2024 — Apr 2025 · 7 mos</span>
+                                <h3><span>DevOps Engineer</span> <small>Bild · Hyderabad · Hybrid</small></h3>
+                                <p>Owned cost, reliability, and observability across a 500k-user platform — building autoscaling, search rightsizing, DNS migration, and a self-hosted ITAR-compliant observability stack.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge">CloudFormation</span>
+                                    <span class="tech-badge">Datadog</span>
+                                    <span class="tech-badge">Grafana</span>
+                                    <span class="tech-badge">SST · WAF</span>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="timeline-wrapper">
                             <div class="timeline-yr">
                                 <i class="uil uil-cloud"></i>
                                 <span>2023</span>
                             </div>
                             <div class="timeline-info">
-                                <span class="timeline-month">Oct 2023 — Present</span>
+                                <span class="timeline-month">Oct 2023 — Sep 2024</span>
                                 <h3><span>Cloud Engineer II</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
-                                <p>Lead multiple cloud projects and deliverables, maintaining the performance, scalability, and reliability of production infrastructure across AWS and Azure.</p>
+                                <p>Led cloud projects end-to-end, maintaining performance, scalability, and reliability of production infrastructure across AWS and Azure.</p>
                                 <div class="timeline-tech">
                                     <span class="tech-badge aws">AWS</span>
                                     <span class="tech-badge terraform">Terraform</span>
@@ -796,10 +955,11 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12 reveal">
+                <div class="col-lg-6 col-12 reveal lane-col lane-col-education">
                     <div class="stage-card mb-4 mobile-mt-2">
                         <div class="stage-card-meta">
                             <span class="stage-id">stage_04 / education</span>
+                            <span class="lane-pill lane-pill-edu"><span class="lane-dot"></span>lane_b</span>
                             <span class="stage-status-pill passed">passed</span>
                             <span class="stage-duration">7 yrs</span>
                         </div>
@@ -812,7 +972,7 @@
                         <h2>Education</h2>
                     </div>
 
-                    <div class="timeline timeline-modern">
+                    <div class="timeline timeline-modern lane-education">
                         <div class="timeline-wrapper">
                             <div class="timeline-yr">
                                 <i class="uil uil-graduation-hat"></i>
@@ -856,22 +1016,36 @@
                 </div>
 
             </div>
+
+            <!-- Parallel pipeline merge: stages 03 + 04 sync before deploy -->
+            <div class="parallel-pipeline-merge reveal" aria-hidden="true">
+                <div class="merge-shape">
+                    <span class="merge-branch merge-branch-left"></span>
+                    <span class="merge-branch merge-branch-right"></span>
+                    <span class="merge-junction"></span>
+                    <span class="merge-stem"></span>
+                </div>
+                <div class="merge-meta">
+                    <span class="merge-tag">join · sync</span>
+                    <span class="merge-status">all lanes joined</span>
+                </div>
+            </div>
         </div>
     </section>
     
     <!-- Pipeline connector -->
-    <div class="pipeline-connector active" aria-hidden="true">
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="contact">
         <div class="connector-line"></div>
         <div class="connector-node"></div>
     </div>
 
     <!-- CONTACT -->
-    <section class="contact py-5" id="contact">
+    <section class="contact py-5 pipeline-section" id="contact" data-pipeline-section="contact">
       <div class="container">
         <div class="stage-wrap-center">
             <div class="stage-card reveal">
                 <div class="stage-card-meta">
-                    <span class="stage-id">stage_05 / deploy</span>
+                    <span class="stage-id">stage_05 / connect</span>
                     <span class="stage-status-pill running">awaiting input</span>
                     <span class="stage-duration">manual trigger</span>
                 </div>
@@ -914,7 +1088,7 @@
       </div>
     </section>
       <!-- Site footer -->
-      <footer class="site-footer">
+      <footer class="site-footer pipeline-section" data-pipeline-section="contact">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-6">
