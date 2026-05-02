@@ -46,21 +46,24 @@
         revealElements.forEach(function(el) { el.classList.add('visible'); });
     }
 
-    // TILT EFFECT for project & article cards
-    var tiltCards = document.querySelectorAll('.project-card-modern, .article-card');
-    tiltCards.forEach(function(card) {
-        card.addEventListener('mousemove', function(e) {
-            var rect = card.getBoundingClientRect();
-            var x = e.clientX - rect.left;
-            var y = e.clientY - rect.top;
-            var rotateX = ((y / rect.height) - 0.5) * -4;
-            var rotateY = ((x / rect.width) - 0.5) * 4;
-            card.style.transform = 'translateY(-8px) perspective(900px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+    // TILT EFFECT for project & article cards (skip on touch / coarse-pointer devices)
+    var supportsHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (supportsHover) {
+        var tiltCards = document.querySelectorAll('.project-card-modern, .article-card');
+        tiltCards.forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var rotateX = ((y / rect.height) - 0.5) * -4;
+                var rotateY = ((x / rect.width) - 0.5) * 4;
+                card.style.transform = 'translateY(-8px) perspective(900px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+            });
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+            });
         });
-        card.addEventListener('mouseleave', function() {
-            card.style.transform = '';
-        });
-    });
+    }
 
     // PIPELINE PROGRESS: highlight the currently visible stage in the summary banner
     var pipelineStages = document.querySelectorAll('.pipeline-stage[data-stage]');
