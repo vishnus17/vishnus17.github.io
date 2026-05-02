@@ -19,8 +19,20 @@
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
+    <noscript><style>body.pipeline-locked .pipeline-section,body.pipeline-not-started .pipeline-summary{display:revert !important}.pipeline-locked-teaser{display:none !important}</style></noscript>
   </head>
-  <body>
+  <body class="pipeline-locked pipeline-not-started">
+    <script>
+      // Unlock immediately for returning visitors so they don't see a flash of the lock state.
+      (function() {
+        try {
+          if (localStorage.getItem('pipelineHasRun') === '1') {
+            document.body.classList.remove('pipeline-locked');
+            document.body.classList.remove('pipeline-not-started');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
@@ -101,276 +113,951 @@
         </div>
     </section>
 
-    <!-- Articles -->
-    <section class="project py-5" id="articles">
+    <!-- Pipeline locked teaser (visible only before the user kicks off the pipeline) -->
+    <section class="pipeline-locked-teaser" id="pipelineLockedTeaser" aria-live="polite">
         <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
-
-                      <div class="col-lg-8 mx-auto">
-                        <h2>Articles</h2>
-                      </div>
-                      <div class="owl-carousel owl-theme">
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/how-to-deploy-to-ec2-using-github-actions-without-iam-user" target="_blank"><img src="images/project/project-image00.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/accessing-ec2-without-using-ssh-key" target="_blank"><img src="images/project/project-image06.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/mongodb-atlas-aws-iam-passwordless-authentication-example" target="_blank"><img src="images/project/project-image01.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/automate-amazon-ecs-cluster-creation-with-a-custom-docker-image-using-aws-cdk" target="_blank"><img src="images/project/project-image02.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account" target="_blank"><img src="images/project/project-image03.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.learnmorecloud.com/serverless-image-handler-cdk-v2-simplified-implementation-sih-cdk-solution" target="_blank"><img src="images/project/project-image04.png"  class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                        
-                        <div class="item">
-                          <div class="project-info">
-                            <a href="https://blog.wemakedevs.org/how-do-websites-redirect-to-your-location-based-version" target="_blank"><img src="images/project/project-image05.png" class="img-fluid" alt="project image"></a>
-                          </div>
-                        </div>
-                      </div>
-
-                  </div>
+            <div class="locked-teaser-card reveal">
+                <div class="locked-teaser-icon" aria-hidden="true">
+                    <i class="uil uil-padlock"></i>
                 </div>
+                <div class="locked-teaser-body">
+                    <span class="locked-teaser-eyebrow">awaiting trigger</span>
+                    <h3>Portfolio contents are locked</h3>
+                    <p>Click <strong>▶ Start Pipeline</strong> to unlock all stages and reveal the full portfolio.</p>
+                    <div class="locked-teaser-stages">
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>articles</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>projects</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>experience</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>education</span>
+                        <span class="locked-stage-chip"><span class="chip-dot"></span>connect</span>
+                    </div>
+                </div>
+                <div class="locked-teaser-cta-group">
+                    <span class="cta-prompt-arrow" aria-hidden="true">
+                        <span class="prompt-text">click here</span>
+                        <svg class="prompt-arrow-svg" viewBox="0 0 36 14" width="36" height="14" fill="none">
+                            <path d="M2 7 H28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+                            <path d="M24 2 L31 7 L24 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </span>
+                    <button type="button" class="locked-teaser-cta" id="lockedTeaserCta">
+                        <span class="cta-icon" aria-hidden="true">
+                            <svg viewBox="0 0 16 16" width="12" height="12"><polygon points="3,2 14,8 3,14" fill="currentColor"/></svg>
+                        </span>
+                        Start Pipeline
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Projects-->
-    
-        <!-- Portfolio Start -->
-        <div class="portfolio" id="project">
-          <div class="container">
-              <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                  <h2>Projects</h2>
-                  <br>
-                  <br>
-              </div>
-              <div class="row">
-                <br>
-              </div>
-              <div class="row portfolio-container">
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                              <a href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank"><img src="images/img/portfolio-1.PNG" alt="Image"></a>
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Firebase CI/CD Pipeline</h3>
-                              <a class="btn" href="https://github.com/vishnus17/React-Native-Firebase-deployment" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                            <a href="https://github.com/vishnus17/Terraform-aws-lambda"><img src="images/img/portfolio-2.PNG" alt="Image"></a>  
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Terraform Lambda</h3>
-                              <a class="btn" href="https://github.com/vishnus17/Terraform-aws-lambda" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                      <div class="portfolio-wrap">
-                          <div class="portfolio-img">
-                            <a href="https://github.com/vishnus17/Terraform-AKS" target="_blank">  <img src="images/img/portfolio-3.PNG" alt="Image"></a>
-                          </div>
-                          <div class="portfolio-text">
-                              <h3>Terraform AKS</h3>
-                              <a class="btn" href="https://github.com/vishnus17/Terraform-AKS" target="_blank">View</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="portfolio-wrap">
-                        <div class="portfolio-img">
-                          <a href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank">  <img src="images/img/portfolio-4.PNG" alt="Image"></a>
-                        </div>
-                        <div class="portfolio-text">
-                            <h3>Terraform GCP Resources</h3>
-                            <a class="btn" href="https://github.com/vishnus17/GCP-Terraform-creation" target="_blank">View</a>
-                        </div>
+    <!-- PIPELINE OVERVIEW -->
+    <section class="pipeline-summary">
+        <div class="container">
+            <div class="pipeline-summary-inner reveal" id="pipelineSummary">
+                <div class="pipeline-summary-header">
+                    <div class="pipeline-summary-title">
+                        <i class="uil uil-processor" style="color:#ffc200;font-size:18px;"></i>
+                        portfolio.yml
+                        <span class="branch-pill">⎇ main</span>
+                    </div>
+                    <div class="pipeline-summary-meta">
+                        <span id="pipelineStatusLabel"><span class="meta-idle">○</span> awaiting trigger</span>
+                        <span>build #2026.05</span>
+                        <span id="pipelineDurationLabel">--</span>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                  <div class="portfolio-wrap">
-                      <div class="portfolio-img">
-                        <a href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank">  <img src="images/img/portfolio-5.PNG" alt="Image"></a>
-                      </div>
-                      <div class="portfolio-text">
-                          <h3>Ansible URI Module</h3>
-                          <a class="btn" href="https://github.com/vishnus17/Ansible-URI-module-example" target="_blank">View</a>
-                      </div>
-                  </div>
-              </div>
 
-              <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="portfolio-wrap">
-                    <div class="portfolio-img">
-                      <a href="https://github.com/vishnus17/ECS-automation" target="_blank">  <img src="images/img/portfolio-7.png" alt="Image"></a>
+                <div class="pipeline-stages" id="pipelineStages">
+                    <a href="#articles" class="pipeline-stage is-queued" data-stage="articles">
+                        <span class="stage-icon"></span>
+                        articles
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#project" class="pipeline-stage is-queued" data-stage="project">
+                        <span class="stage-icon"></span>
+                        projects
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#resume" class="pipeline-stage is-queued" data-stage="resume">
+                        <span class="stage-icon"></span>
+                        experience
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#resume" class="pipeline-stage is-queued" data-stage="education">
+                        <span class="stage-icon"></span>
+                        education
+                    </a>
+                    <span class="pipeline-arrow">▶</span>
+                    <a href="#contact" class="pipeline-stage is-queued" data-stage="contact">
+                        <span class="stage-icon"></span>
+                        connect
+                    </a>
+                </div>
+
+                <button type="button" class="pipeline-reset-btn" id="pipelineResetBtn" title="Reset pipeline and clear local cache">
+                    <svg class="reset-btn-icon" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                        <path d="M14 8a6 6 0 1 1 -1.76 -4.24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M14 2v3.5h-3.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>reset</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="articles">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
+    <!-- Featured credential -->
+    <section class="featured-credential-section pipeline-section" data-pipeline-section="articles">
+        <div class="container">
+            <div class="featured-credential reveal">
+                <div class="featured-credential-meta">
+                    <span class="stage-id">cert.aws / professional</span>
+                    <span class="stage-status-pill passed">verified</span>
+                    <span class="featured-tag">★ key credential</span>
+                </div>
+                <span class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-path">~/credentials</span>
+                    <span class="prompt-cmd">cat aws-devops-pro.json</span>
+                    <span class="blink-cursor"></span>
+                </span>
+                <a class="credential-badge featured" href="https://www.credly.com/badges/a30c5bf8-679c-4831-99cf-c570308555eb/public_url" target="_blank" rel="noopener">
+                    <div class="credential-icon credential-icon-badge">
+                        <img class="credential-badge-image" src="images/img/cert.png" alt="AWS Certified DevOps Engineer - Professional badge" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.parentNode.classList.add('badge-fallback');" />
+                        <i class="uil uil-award-alt credential-icon-fallback" aria-hidden="true"></i>
                     </div>
-                    <div class="portfolio-text">
-                        <h3>ECS automation</h3>
-                        <a class="btn" href="https://github.com/vishnus17/ECS-automation" target="_blank">View</a>
+                    <div class="credential-info">
+                        <h4>AWS Certified DevOps Engineer — Professional</h4>
+                        <span class="credential-issuer">Issued by Amazon Web Services · Credly</span>
+                        <div class="credential-badges">
+                            <span class="tech-badge aws">AWS</span>
+                            <span class="tech-badge">DevOps</span>
+                            <span class="tech-badge">CI/CD</span>
+                            <span class="tech-badge">IaC</span>
+                        </div>
                     </div>
+                    <span class="credential-verify">verify ↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="articles">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
+    <!-- Articles -->
+    <section class="articles-modern py-5 pipeline-section" id="articles" data-pipeline-section="articles">
+        <div class="container">
+            <div class="stage-wrap-center">
+                <div class="stage-card reveal">
+                    <div class="stage-card-meta">
+                        <span class="stage-id">stage_01 / articles</span>
+                        <span class="stage-status-pill passed">passed</span>
+                        <span class="stage-duration">2.4s</span>
+                    </div>
+                    <span class="terminal-prompt">
+                        <span class="prompt-symbol">$</span>
+                        <span class="prompt-path">~/blog</span>
+                        <span class="prompt-cmd">cat recent-posts.md</span>
+                        <span class="blink-cursor"></span>
+                    </span>
+                    <h2>Articles</h2>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-              <div class="portfolio-wrap">
-                  <div class="portfolio-img">
-                    <a href="https://github.com/vishnus17/ECS-automation" target="_blank">  <img src="images/img/portfolio-8.png" alt="Image"></a>
-                  </div>
-                  <div class="portfolio-text">
-                      <h3>Monitoring automation</h3>
-                      <a class="btn" href="https://github.com/vishnus17/cdk-monitoring" target="_blank">View</a>
-                  </div>
-              </div>
-          </div>
-                      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp " data-wow-delay="0.0s">
-                      <div class="portfolio-wrap">
-                      <div class="portfolio-img">
-                        <a href="https://github.com/vishnus17/flask-postgresql-api" target="_blank"> <img src="images/img/portfolio-6.PNG" alt="Image"></a>
-                      </div>
-                      <div class="portfolio-text">
-                          <h3>Flask Api</h3>
-                          <a class="btn" href="https://github.com/vishnus17/flask-postgresql-api" target="_blank">View</a>
-                      </div>
-                  </div>
-              </div> </div> <br>
-              <div class="row">
-                <br>
-          </div>
-      </div>
-    </div></div>
-      <!-- Portfolio End -->
+            <div class="row reveal-stagger">
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/how-to-deploy-to-ec2-using-github-actions-without-iam-user" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image00.png" alt="Deploy to EC2 using GitHub Actions without IAM User">
+                            <span class="article-card-overlay"><i class="uil uil-bolt"></i> CI/CD</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Deploy to EC2 using GitHub Actions without an IAM User</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">AWS EC2</span>
+                                <span class="tech-badge github">GitHub Actions</span>
+                                <span class="tech-badge">OIDC</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
 
-    <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/accessing-ec2-without-using-ssh-key" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image06.png" alt="Accessing EC2 without SSH Key">
+                            <span class="article-card-overlay"><i class="uil uil-shield-check"></i> Security</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Accessing EC2 Without Using an SSH Key</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">SSM</span>
+                                <span class="tech-badge">IAM</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/mongodb-atlas-aws-iam-passwordless-authentication-example" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image01.png" alt="MongoDB Atlas AWS IAM Passwordless Authentication">
+                            <span class="article-card-overlay"><i class="uil uil-key-skeleton-alt"></i> Auth</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">MongoDB Atlas + AWS IAM Passwordless Authentication</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge mongodb">MongoDB</span>
+                                <span class="tech-badge aws">AWS IAM</span>
+                                <span class="tech-badge">Atlas</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/automate-amazon-ecs-cluster-creation-with-a-custom-docker-image-using-aws-cdk" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image02.png" alt="Automate ECS Cluster with AWS CDK">
+                            <span class="article-card-overlay"><i class="uil uil-cube"></i> IaC</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Automate Amazon ECS Cluster Creation with AWS CDK</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">ECS</span>
+                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge">AWS CDK</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image03.png" alt="Lambda triggering CodeBuild cross-account">
+                            <span class="article-card-overlay"><i class="uil uil-cloud-download"></i> Serverless</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Use Lambda to Trigger CodeBuild in Another AWS Account</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">Lambda</span>
+                                <span class="tech-badge">CodeBuild</span>
+                                <span class="tech-badge">Cross-Account</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.learnmorecloud.com/serverless-image-handler-cdk-v2-simplified-implementation-sih-cdk-solution" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image04.png" alt="Serverless Image Handler CDK">
+                            <span class="article-card-overlay"><i class="uil uil-image"></i> Serverless</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">Serverless Image Handler CDK v2 — Simplified Implementation</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">CDK v2</span>
+                                <span class="tech-badge">CloudFront</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <a href="https://blog.wemakedevs.org/how-do-websites-redirect-to-your-location-based-version" target="_blank" class="article-card d-block">
+                        <div class="article-card-image">
+                            <img src="images/project/project-image05.png" alt="Geo-based redirects">
+                            <span class="article-card-overlay"><i class="uil uil-globe"></i> Web</span>
+                        </div>
+                        <div class="article-card-body">
+                            <h3 class="article-card-title">How Websites Redirect You to Your Location-Based Version</h3>
+                            <div class="article-card-tags">
+                                <span class="tech-badge">GeoDNS</span>
+                                <span class="tech-badge">CDN</span>
+                                <span class="tech-badge">Networking</span>
+                            </div>
+                            <span class="article-card-link">read --full</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="project">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
+    <!-- Projects-->
+    <div class="portfolio pipeline-section" id="project" data-pipeline-section="project">
         <div class="container">
-            <div class="row">
+            <div class="stage-wrap-center">
+                <div class="stage-card reveal">
+                    <div class="stage-card-meta">
+                        <span class="stage-id">stage_02 / projects</span>
+                        <span class="stage-status-pill passed">passed</span>
+                        <span class="stage-duration">5.1s</span>
+                    </div>
+                    <span class="terminal-prompt">
+                        <span class="prompt-symbol">$</span>
+                        <span class="prompt-path">~/projects</span>
+                        <span class="prompt-cmd">ls --all --tech</span>
+                        <span class="blink-cursor"></span>
+                    </span>
+                    <h2>Projects</h2>
+                </div>
+            </div>
 
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4">Experience</h2>
-
-                    <div class="timeline">
-                      <div class="timeline-wrapper"><font-color="white">October</font>
-                        <div class="timeline-yr">
-                             <span>2023</span>
-                             
-                        </div>
-                        <div class="timeline-info">
-                             <h3><span>Cloud Engineer 2</span><a href="https://www.appmastery.co/"><small>App Mastery</small></h3></a>
-                             <p>Responsible for handling multiple projects and deliverables within the company and for maintaining the performance, scalability, and reliability of different infrastructures.</p>
-                        </div>
-                   </div>
-
-                        <div class="timeline-wrapper"><font-color="white">July</font>
-                             <div class="timeline-yr">
-                                  <span>2022</span>
-                                  
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Cloud Engineer</span><a href="https://www.appmastery.co/"><small>App Mastery</small></h3></a>
-                                  <p>Develop and implement cloud solutions for various application architectures and programmatic integration of cloud applications, data services, and infrastructure ....</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper"><font-color="white">May</font>
-                            <div class="timeline-yr">
-                                <span>2022</span>
+            <div class="row reveal-stagger">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">💸</span>analyzer.ts</span>
+                                <span class="code-preview-tab">FinOps · AI</span>
                             </div>
-                            <div class="timeline-info">
-                                <h3><span>DevOps Engineer</span><small>Gritfy Technologies</small></h3>
-                                <p>Building and setting up new development tools and infrastructure using DevOps practices ....</p>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">const</span> <span class="tk-var">recs</span> = <span class="tk-keyword">await</span> <span class="tk-var">analyzer</span>.<span class="tk-fn">analyze</span>(<span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">accounts</span><span class="tk-punc">:</span> <span class="tk-fn">listAwsAccounts</span>(),</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">window</span><span class="tk-punc">:</span> <span class="tk-string">'7d'</span>,</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">model</span><span class="tk-punc">:</span> <span class="tk-string">'cost-optimizer-v2'</span>,</div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-var">recs</span>.<span class="tk-fn">forEach</span>(<span class="tk-var">r</span> =&gt; <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent"></span><span class="tk-fn">log</span>(<span class="tk-string">`${r.service}: $${r.savings}/mo`</span>)</div>
+                                <div class="code-line"><span class="ln">8</span><span class="tk-punc">})</span> <span class="tk-comment"># savings surfaced</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">scan · 32% saved</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">running</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">CostOps AI</h3>
+                            <p class="project-card-desc">AI-driven cloud cost optimization platform that scans AWS accounts and surfaces actionable savings recommendations.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge node">Node.js</span>
+                                <span class="tech-badge">FinOps</span>
+                                <span class="tech-badge">AI</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/costops-ai" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/costops-ai" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
                             </div>
                         </div>
-
-                        <div class="timeline-wrapper"><font-color="white">April</font>
-                            <div class="timeline-yr">
-                                <span>2022</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>DevOps Freelancer<small>Upwork</small></h3>
-                                <p>Providing DevOps services for clients, implement solutions,etc.</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4 mobile-mt-2">Education</h2>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🚀</span>pipeline-stack.ts</span>
+                                <span class="code-preview-tab">CDK · CI/CD</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">new</span> <span class="tk-fn">CodePipeline</span>(<span class="tk-var">this</span>, <span class="tk-string">'Pipeline'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">source</span><span class="tk-punc">:</span> <span class="tk-fn">GitHubSource</span>(<span class="tk-string">'app'</span>, <span class="tk-string">'main'</span>),</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">build</span><span class="tk-punc">:</span> <span class="tk-keyword">new</span> <span class="tk-fn">ShellStep</span>(<span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent2"></span><span class="tk-prop">commands</span><span class="tk-punc">:</span> [<span class="tk-string">'docker build'</span>, <span class="tk-string">'ecr push'</span>],</div>
+                                <div class="code-line"><span class="ln">5</span><span class="indent"></span><span class="tk-punc">}</span>),</div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent"></span><span class="tk-prop">deploy</span><span class="tk-punc">:</span> <span class="tk-keyword">new</span> <span class="tk-fn">EcsDeployAction</span>(<span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="tk-var">cluster</span>, <span class="tk-var">service</span>, <span class="tk-prop">strategy</span><span class="tk-punc">:</span> <span class="tk-string">'blue/green'</span></div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-punc">}</span>),</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-punc">})</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">deploy · 4m 12s</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Container CI/CD with CDK</h3>
+                            <p class="project-card-desc">End-to-end CDK pipeline that builds container images, pushes to ECR, and rolls out blue/green deploys to ECS Fargate.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">AWS CDK</span>
+                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge">ECS</span>
+                                <span class="tech-badge">CodePipeline</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/cicd-container-deployment-cdk" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/cicd-container-deployment-cdk" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="timeline">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">☸</span>application.yaml</span>
+                                <span class="code-preview-tab">GitOps</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-prop">apiVersion</span><span class="tk-punc">:</span> <span class="tk-string">argoproj.io/v1alpha1</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="tk-prop">kind</span><span class="tk-punc">:</span> <span class="tk-string">Application</span></div>
+                                <div class="code-line"><span class="ln">3</span><span class="tk-prop">metadata</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">name</span><span class="tk-punc">:</span> <span class="tk-string">web-app</span></div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-prop">spec</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent"></span><span class="tk-prop">source</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="tk-prop">repoURL</span><span class="tk-punc">:</span> <span class="tk-string">github.com/vishnus17/app</span></div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent2"></span><span class="tk-prop">path</span><span class="tk-punc">:</span> <span class="tk-string">k8s/manifests</span></div>
+                                <div class="code-line"><span class="ln">9</span><span class="indent"></span><span class="tk-prop">syncPolicy</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">automated</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">prune</span><span class="tk-punc">:</span> <span class="tk-bool">true</span> <span class="tk-punc">}</span> <span class="tk-punc">}</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">synced · healthy</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">synced</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">ArgoCD GitOps Workflow</h3>
+                            <p class="project-card-desc">Reference Kubernetes GitOps setup with Argo CD — declarative app sync, auto-prune, and self-heal policies for drift-free clusters.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge kubernetes">Kubernetes</span>
+                                <span class="tech-badge">Argo CD</span>
+                                <span class="tech-badge">GitOps</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/argocd-prac" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/argocd-prac" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🐍</span>tf_orchestrator.py</span>
+                                <span class="code-preview-tab">Python · IaC</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">def</span> <span class="tk-fn">deploy</span>(<span class="tk-var">env</span><span class="tk-punc">,</span> <span class="tk-var">dry_run</span>=<span class="tk-bool">False</span>)<span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-var">tf</span> = <span class="tk-fn">Terraform</span>(<span class="tk-prop">workdir</span>=<span class="tk-string">f'envs/{env}'</span>)</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-var">tf</span>.<span class="tk-fn">init</span>()</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-var">plan</span> = <span class="tk-var">tf</span>.<span class="tk-fn">plan</span>(<span class="tk-prop">out</span>=<span class="tk-string">'plan.tfplan'</span>)</div>
+                                <div class="code-line"><span class="ln">5</span><span class="indent"></span><span class="tk-keyword">if</span> <span class="tk-var">plan</span>.<span class="tk-prop">has_changes</span> <span class="tk-keyword">and not</span> <span class="tk-var">dry_run</span><span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent2"></span><span class="tk-keyword">if</span> <span class="tk-fn">approve</span>(<span class="tk-var">plan</span>)<span class="tk-punc">:</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="indent"></span><span class="tk-var">tf</span>.<span class="tk-fn">apply</span>(<span class="tk-string">'plan.tfplan'</span>)</div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-keyword">return</span> <span class="tk-var">plan</span>.<span class="tk-prop">summary</span>()</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-comment"># gated apply · safe rollback</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">apply · 0 errors</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">stable</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Terraform Automation in Python</h3>
+                            <p class="project-card-desc">Python orchestration layer over Terraform — parameterized plan/apply with approval gates and a clean rollback path.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge python">Python</span>
+                                <span class="tech-badge terraform">Terraform</span>
+                                <span class="tech-badge">Automation</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/terraform-automation-python" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/terraform-automation-python" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🔐</span>oidc-stack.ts</span>
+                                <span class="code-preview-tab">OIDC · CDK</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">new</span> <span class="tk-fn">OpenIdConnectProvider</span>(<span class="tk-var">this</span>, <span class="tk-string">'GitHubIdP'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">url</span><span class="tk-punc">:</span> <span class="tk-string">'https://token.actions.github.com'</span>,</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">clientIds</span><span class="tk-punc">:</span> [<span class="tk-string">'sts.amazonaws.com'</span>],</div>
+                                <div class="code-line"><span class="ln">4</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-keyword">new</span> <span class="tk-fn">Role</span>(<span class="tk-var">this</span>, <span class="tk-string">'DeployRole'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="indent"></span><span class="tk-prop">assumedBy</span><span class="tk-punc">:</span> <span class="tk-keyword">new</span> <span class="tk-fn">FederatedPrincipal</span>(<span class="tk-var">idp</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent2"></span><span class="tk-string">'token.actions:sub'</span><span class="tk-punc">:</span> <span class="tk-string">`repo:${repo}:ref:main`</span>,</div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-punc">}</span>),</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-punc">})</span> <span class="tk-comment"># zero long-lived keys</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">keyless · audited</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">GitHub OIDC → AWS Deploy</h3>
+                            <p class="project-card-desc">Keyless GitHub Actions to AWS deployments via OIDC federation — provisions the IdP, IAM role, and scoped trust policy via CDK.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">CDK</span>
+                                <span class="tech-badge github">GitHub</span>
+                                <span class="tech-badge">OIDC</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/oidc-ec2-deployment-cdk-infra" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/oidc-ec2-deployment-cdk-infra" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">⛴</span>ecs-stack.ts</span>
+                                <span class="code-preview-tab">CDK</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">import</span> * <span class="tk-keyword">as</span> <span class="tk-var">ecs</span> <span class="tk-keyword">from</span> <span class="tk-string">'aws-cdk-lib/ecs'</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="tk-keyword">const</span> <span class="tk-var">cluster</span> = <span class="tk-keyword">new</span> <span class="tk-fn">ecs.Cluster</span>(<span class="tk-var">this</span>, <span class="tk-string">'Cluster'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">vpc</span>, <span class="tk-prop">capacity</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">instanceType</span><span class="tk-punc">:</span> <span class="tk-string">'t3.small'</span> <span class="tk-punc">}</span></div>
+                                <div class="code-line"><span class="ln">4</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-keyword">const</span> <span class="tk-var">task</span> = <span class="tk-keyword">new</span> <span class="tk-fn">ecs.FargateTaskDefinition</span>(<span class="tk-punc">...</span>)</div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-var">task</span>.<span class="tk-fn">addContainer</span>(<span class="tk-string">'app'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent"></span><span class="tk-prop">image</span><span class="tk-punc">:</span> <span class="tk-fn">ContainerImage.fromAsset</span>(<span class="tk-string">'./app'</span>)</div>
+                                <div class="code-line"><span class="ln">8</span><span class="tk-punc">})</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">cdk deploy · success</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">ECS Automation</h3>
+                            <p class="project-card-desc">Automate Amazon ECS cluster provisioning and task deployment using AWS CDK with custom Docker images.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">ECS</span>
+                                <span class="tech-badge docker">Docker</span>
+                                <span class="tech-badge">AWS CDK</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/ECS-automation" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/ECS-automation" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">📈</span>monitoring.ts</span>
+                                <span class="code-preview-tab">Observability</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">new</span> <span class="tk-fn">cloudwatch.Alarm</span>(<span class="tk-var">this</span>, <span class="tk-string">'CpuHigh'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">metric</span><span class="tk-punc">:</span> <span class="tk-var">service</span>.<span class="tk-fn">metricCpuUtilization</span>(),</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">threshold</span><span class="tk-punc">:</span> <span class="tk-num">80</span>,</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">evaluationPeriods</span><span class="tk-punc">:</span> <span class="tk-num">2</span>,</div>
+                                <div class="code-line"><span class="ln">5</span><span class="indent"></span><span class="tk-prop">alarmDescription</span><span class="tk-punc">:</span> <span class="tk-string">'CPU > 80%'</span>,</div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-punc">}</span>).<span class="tk-fn">addAlarmAction</span>(<span class="tk-keyword">new</span> <span class="tk-fn">SnsAction</span>(<span class="tk-var">topic</span>))</div>
+                                <div class="code-line"><span class="ln">7</span><span class="tk-keyword">new</span> <span class="tk-fn">Dashboard</span>(<span class="tk-var">this</span>, <span class="tk-string">'Ops'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">8</span><span class="indent"></span><span class="tk-prop">widgets</span><span class="tk-punc">:</span> [[<span class="tk-var">cpuWidget</span>, <span class="tk-var">memWidget</span>]]</div>
+                                <div class="code-line"><span class="ln">9</span><span class="tk-punc">}</span>)</div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">14 alarms · armed</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">monitoring</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Monitoring Automation</h3>
+                            <p class="project-card-desc">CDK construct that automates CloudWatch alarms, dashboards, and SNS notifications for AWS workloads.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">CloudWatch</span>
+                                <span class="tech-badge">AWS CDK</span>
+                                <span class="tech-badge">Observability</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/cdk-monitoring" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/cdk-monitoring" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-card-modern">
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <div class="code-preview-dots">
+                                    <span class="code-preview-dot red"></span>
+                                    <span class="code-preview-dot yellow"></span>
+                                    <span class="code-preview-dot green"></span>
+                                </div>
+                                <span class="code-preview-filename"><span class="file-icon">🖼</span>image-handler.ts</span>
+                                <span class="code-preview-tab">Serverless</span>
+                            </div>
+                            <div class="code-preview-body">
+                                <div class="code-line"><span class="ln">1</span><span class="tk-keyword">const</span> <span class="tk-var">handler</span> = <span class="tk-keyword">new</span> <span class="tk-fn">NodejsFunction</span>(<span class="tk-var">this</span>, <span class="tk-string">'ImgFn'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">2</span><span class="indent"></span><span class="tk-prop">entry</span><span class="tk-punc">:</span> <span class="tk-string">'src/handler.ts'</span>,</div>
+                                <div class="code-line"><span class="ln">3</span><span class="indent"></span><span class="tk-prop">memorySize</span><span class="tk-punc">:</span> <span class="tk-num">1024</span>,</div>
+                                <div class="code-line"><span class="ln">4</span><span class="indent"></span><span class="tk-prop">timeout</span><span class="tk-punc">:</span> <span class="tk-fn">Duration.seconds</span>(<span class="tk-num">15</span>),</div>
+                                <div class="code-line"><span class="ln">5</span><span class="tk-punc">})</span></div>
+                                <div class="code-line"><span class="ln">6</span><span class="tk-keyword">new</span> <span class="tk-fn">Distribution</span>(<span class="tk-var">this</span>, <span class="tk-string">'CDN'</span>, <span class="tk-punc">{</span></div>
+                                <div class="code-line"><span class="ln">7</span><span class="indent"></span><span class="tk-prop">defaultBehavior</span><span class="tk-punc">:</span> <span class="tk-punc">{</span> <span class="tk-prop">origin</span><span class="tk-punc">:</span> <span class="tk-fn">FnUrl</span>(<span class="tk-var">handler</span>) <span class="tk-punc">}</span>,</div>
+                                <div class="code-line"><span class="ln">8</span><span class="tk-punc">})</span> <span class="tk-comment"># single-stack rewrite ⭐3</span></div>
+                            </div>
+                            <div class="code-preview-status">
+                                <span class="branch-info">main</span>
+                                <span class="build-info">cold start &lt; 200ms</span>
+                            </div>
+                            <span class="project-status"><span class="status-dot"></span><span class="status-text">deployed</span></span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Serverless Image Handler v2</h3>
+                            <p class="project-card-desc">Simplified single-stack CDK rewrite of AWS Solutions' Serverless Image Handler — Lambda + CloudFront + S3, deploy in one command.</p>
+                            <div class="project-card-tags">
+                                <span class="tech-badge aws">AWS</span>
+                                <span class="tech-badge">CDK v2</span>
+                                <span class="tech-badge">Lambda</span>
+                                <span class="tech-badge">CloudFront</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a class="btn-action btn-primary-action" href="https://github.com/vishnus17/serverless-image-handler-cdkv2" target="_blank"><i class="uil uil-eye"></i> View</a>
+                                <a class="btn-action btn-secondary-action" href="https://github.com/vishnus17/serverless-image-handler-cdkv2" target="_blank"><i class="uil uil-link-alt"></i> Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio End -->
+
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="resume">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
+    <!-- RESUME -->
+    <section class="resume py-5 pipeline-section" id="resume" data-pipeline-section="resume">
+        <div class="container">
+
+            <!-- Parallel pipeline fork: stages 03 and 04 run concurrently -->
+            <div class="parallel-pipeline-fork reveal" aria-hidden="true">
+                <div class="fork-meta">
+                    <span class="fork-id">jobs:</span>
+                    <span class="fork-tag">matrix · parallel</span>
+                    <span class="fork-status">2 lanes running</span>
+                </div>
+                <div class="fork-shape">
+                    <span class="fork-stem"></span>
+                    <span class="fork-junction"></span>
+                    <span class="fork-branch fork-branch-left"></span>
+                    <span class="fork-branch fork-branch-right"></span>
+                </div>
+            </div>
+
+            <div class="row parallel-pipeline-row">
+                <div class="parallel-pipeline-rail" aria-hidden="true">
+                    <span class="rail-pulse rail-pulse-middle"></span>
+                    <span class="rail-pulse rail-pulse-bottom"></span>
+                </div>
+
+                <div class="col-lg-6 col-12 reveal lane-col lane-col-experience">
+                    <div class="stage-card mb-4">
+                        <div class="stage-card-meta">
+                            <span class="stage-id">stage_03 / experience</span>
+                            <span class="lane-pill"><span class="lane-dot"></span>lane_a</span>
+                            <span class="stage-status-pill running">running</span>
+                            <span class="stage-duration">4+ yrs</span>
+                        </div>
+                        <span class="terminal-prompt">
+                            <span class="prompt-symbol">$</span>
+                            <span class="prompt-path">~/career</span>
+                            <span class="prompt-cmd">git log --pretty=oneline</span>
+                            <span class="blink-cursor"></span>
+                        </span>
+                        <h2>Experience</h2>
+                    </div>
+
+                    <div class="timeline timeline-modern lane-experience">
                         <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2023</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>B.Tech Computer Science Engineering</span></h3>
-                                  <p>Indian Institute of Information Technology Kottayam</p>
-                                  <p> CGPA - 8.185</p>
-                             </div>
+                            <div class="timeline-yr">
+                                <i class="uil uil-rocket"></i>
+                                <span>2025</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">May 2025 — Present</span>
+                                <h3><span>Senior Cloud Engineer</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
+                                <p>Driving cloud architecture and delivery across multi-region AWS workloads — focused on platform reliability, automation, and helping engineers ship safer changes faster from a remote-first setup in Toronto, ON.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge terraform">Terraform</span>
+                                    <span class="tech-badge kubernetes">K8s</span>
+                                    <span class="tech-badge">Platform Eng</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="timeline-wrapper">
                             <div class="timeline-yr">
+                                <i class="uil uil-shield-check"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Oct 2024 — Apr 2025 · 7 mos</span>
+                                <h3><span>DevOps Engineer</span> <small>Bild · Hyderabad · Hybrid</small></h3>
+                                <p>Owned cost, reliability, and observability across a 500k-user platform — building autoscaling, search rightsizing, DNS migration, and a self-hosted ITAR-compliant observability stack.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge">CloudFormation</span>
+                                    <span class="tech-badge">Datadog</span>
+                                    <span class="tech-badge">Grafana</span>
+                                    <span class="tech-badge">SST · WAF</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-cloud"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Oct 2023 — Sep 2024</span>
+                                <h3><span>Cloud Engineer II</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
+                                <p>Led cloud projects end-to-end, maintaining performance, scalability, and reliability of production infrastructure across AWS and Azure.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge terraform">Terraform</span>
+                                    <span class="tech-badge kubernetes">K8s</span>
+                                    <span class="tech-badge docker">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-server-network"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Jul 2022 — Sep 2023</span>
+                                <h3><span>Cloud Engineer</span> <small><a href="https://www.appmastery.co/" target="_blank">App Mastery</a></small></h3>
+                                <p>Designed and shipped cloud solutions for diverse application architectures — programmatic integration of cloud apps, data services, and infrastructure.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS CDK</span>
+                                    <span class="tech-badge">CloudFormation</span>
+                                    <span class="tech-badge python">Python</span>
+                                    <span class="tech-badge node">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-processor"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">May 2022 — Jul 2022</span>
+                                <h3><span>DevOps Engineer</span> <small>Gritfy Technologies</small></h3>
+                                <p>Built and set up modern development tools and infrastructure following DevOps best practices — pipelines, automation, and monitoring.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge">Jenkins</span>
+                                    <span class="tech-badge ansible">Ansible</span>
+                                    <span class="tech-badge docker">Docker</span>
+                                    <span class="tech-badge github">Git</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-laptop-cloud"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">Apr 2022 — May 2022</span>
+                                <h3><span>DevOps Freelancer</span> <small>Upwork</small></h3>
+                                <p>Delivered DevOps services to international clients — implementing CI/CD, IaC, and cloud migration solutions tailored to each project.</p>
+                                <div class="timeline-tech">
+                                    <span class="tech-badge aws">AWS</span>
+                                    <span class="tech-badge terraform">Terraform</span>
+                                    <span class="tech-badge">CI/CD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 reveal lane-col lane-col-education">
+                    <div class="stage-card mb-4 mobile-mt-2">
+                        <div class="stage-card-meta">
+                            <span class="stage-id">stage_04 / education</span>
+                            <span class="lane-pill lane-pill-edu"><span class="lane-dot"></span>lane_b</span>
+                            <span class="stage-status-pill passed">passed</span>
+                            <span class="stage-duration">7 yrs</span>
+                        </div>
+                        <span class="terminal-prompt">
+                            <span class="prompt-symbol">$</span>
+                            <span class="prompt-path">~/edu</span>
+                            <span class="prompt-cmd">cat education.yaml</span>
+                            <span class="blink-cursor"></span>
+                        </span>
+                        <h2>Education</h2>
+                    </div>
+
+                    <div class="timeline timeline-modern lane-education">
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-graduation-hat"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">2019 — 2023</span>
+                                <h3><span>B.Tech, Computer Science Engineering</span></h3>
+                                <p>Indian Institute of Information Technology Kottayam</p>
+                                <span class="timeline-meta"><i class="uil uil-chart-line"></i>CGPA 8.185 / 10</span>
+                                <span class="timeline-meta"><i class="uil uil-award"></i>LiFT'22 Scholar</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-book-open"></i>
                                 <span>2018</span>
                             </div>
                             <div class="timeline-info">
+                                <span class="timeline-month">2016 — 2018</span>
                                 <h3><span>Higher Secondary</span></h3>
                                 <p>GHSS Korom</p>
-                                <p>Percentage - 98%</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2016</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>10th STD</span></h3>
-                                <p>Chinmaya Vidyalaya Payyanur</p>
-                                <p>CGPA - 10.0</p>
+                                <span class="timeline-meta"><i class="uil uil-chart-line"></i>98%</span>
                             </div>
                         </div>
 
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <i class="uil uil-books"></i>
+                                <span>2016</span>
+                            </div>
+                            <div class="timeline-info">
+                                <span class="timeline-month">2015 — 2016</span>
+                                <h3><span>10th STD</span></h3>
+                                <p>Chinmaya Vidyalaya Payyanur</p>
+                                <span class="timeline-meta"><i class="uil uil-chart-line"></i>CGPA 10.0 / 10</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
+            </div>
+
+            <!-- Parallel pipeline merge: stages 03 + 04 sync before deploy -->
+            <div class="parallel-pipeline-merge reveal" aria-hidden="true">
+                <div class="merge-shape">
+                    <span class="merge-branch merge-branch-left"></span>
+                    <span class="merge-branch merge-branch-right"></span>
+                    <span class="merge-junction"></span>
+                    <span class="merge-stem"></span>
+                </div>
+                <div class="merge-meta">
+                    <span class="merge-tag">join · sync</span>
+                    <span class="merge-status">all lanes joined</span>
+                </div>
             </div>
         </div>
     </section>
     
+    <!-- Pipeline connector -->
+    <div class="pipeline-connector active pipeline-section" aria-hidden="true" data-pipeline-section="contact">
+        <div class="connector-line"></div>
+        <div class="connector-node"></div>
+    </div>
+
     <!-- CONTACT -->
-    <section class="contact py-5" id="contact">
+    <section class="contact py-5 pipeline-section" id="contact" data-pipeline-section="contact">
       <div class="container">
+        <div class="stage-wrap-center">
+            <div class="stage-card reveal">
+                <div class="stage-card-meta">
+                    <span class="stage-id">stage_05 / connect</span>
+                    <span class="stage-status-pill running">awaiting input</span>
+                    <span class="stage-duration">manual trigger</span>
+                </div>
+                <span class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-path">~/contact</span>
+                    <span class="prompt-cmd">curl --connect</span>
+                    <span class="blink-cursor"></span>
+                </span>
+                <h2>Get in touch</h2>
+            </div>
+        </div>
         <div class="row">
           <div class="col-lg-6 col-12">
                   <img src="images/undraw/74908-girl-chatting-with-online-friends.gif" style="position: relative; width: 80%;" class="img-fluid" alt="svg image">
@@ -379,9 +1066,6 @@
           <div class="col-lg-6 col col-12 ">
                   <div class="contact-form">
                     <br>
-                    <br>
-                    <br>
-                      <h2 class="mb-4">Get in touch</h2>
                       <form action="https://formspree.io/f/mlevgdop" method="POST">
                           <div class="row">
                               <div class="col-lg-6 col-12">
@@ -404,7 +1088,7 @@
       </div>
     </section>
       <!-- Site footer -->
-      <footer class="site-footer">
+      <footer class="site-footer pipeline-section" data-pipeline-section="contact">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-6">
